@@ -1,4 +1,7 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+
+import { addFriend, deleteFriend } from "./actions";
 
 import FriendList from "./friend-list";
 import FriendForm from "./friend-form";
@@ -6,22 +9,21 @@ import FriendForm from "./friend-form";
 class Friends extends Component {
   constructor(props) {
     super(props);
-    this.state = { friends: [] };
 
     this.onSubmit = this.onSubmit.bind(this);
     this.onDelete = this.onDelete.bind(this);
   }
 
   onSubmit(friend) {
-    this.setState(prevState => ({ friends: [...prevState.friends, friend] }));
+    this.props.dispatch(addFriend(friend));
   }
 
   onDelete(friend) {
-    this.setState(prevState => ({ friends: prevState.friends.filter(f => f.id != friend.id) }));
+    this.props.dispatch(deleteFriend(friend));
   }
 
   render() {
-    const friends = this.state.friends;
+    const { friends } = this.props;
     return (
       <div>
         <h1>Friends</h1>
@@ -32,4 +34,4 @@ class Friends extends Component {
   }
 }
 
-export default Friends;
+export default connect(state => state)(Friends);
