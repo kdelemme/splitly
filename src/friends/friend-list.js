@@ -1,10 +1,6 @@
 import React, { Component } from "react";
 
 class FriendList extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   renderFriend(friend) {
     return (
       <li key={friend.id}>
