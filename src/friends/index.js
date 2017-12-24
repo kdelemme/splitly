@@ -6,7 +6,7 @@ import { addFriend, deleteFriend } from "./actions";
 import FriendList from "./friend-list";
 import FriendForm from "./friend-form";
 
-class Friends extends Component {
+export class Friends extends Component {
   render() {
     const { friends, dispatch } = this.props;
     const dispatchAddFriend = friend => dispatch(addFriend(friend));
