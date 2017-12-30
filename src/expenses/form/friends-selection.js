@@ -17,7 +17,7 @@ class FriendsSelection extends Component {
   }
 
   render() {
-    const { friends, label } = this.props;
+    const { friends, label, selected } = this.props;
     if (friends.length === 0) {
       return null;
     }
@@ -26,7 +26,7 @@ class FriendsSelection extends Component {
       <div>
         <label>
           {label}
-          <select multiple onChange={this.onChange}>
+          <select multiple onChange={this.onChange} value={selected.map(s => s.id)}>
             {friends.map(friend => (
               <option key={friend.id} value={friend.id}>
                 {friend.name}

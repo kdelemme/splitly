@@ -28,19 +28,24 @@ class ExpenseForm extends Component {
 
   onSubmit(event) {
     event.preventDefault();
-    console.log(this.state);
+    this.props.onSubmit(this.state);
+    this.resetState();
+  }
+
+  resetState() {
+    this.setState({ reason: "", amount: "", paidBy: [], paidFor: [] });
   }
 
   render() {
     const { friends } = this.props;
-    const { amount, reason } = this.state;
+    const { amount, reason, paidBy, paidFor } = this.state;
 
     return (
       <form onSubmit={this.onSubmit}>
         <Reason reason={reason} onChange={this.onReasonChange} />
         <Amount amount={amount} onChange={this.onAmountChange} />
-        <FriendsSelection friends={friends} label="Paid By" onChange={this.onPaidByChange} />
-        <FriendsSelection friends={friends} label="Paid For" onChange={this.onPaidForChange} />
+        <FriendsSelection friends={friends} selected={paidBy} label="Paid By" onChange={this.onPaidByChange} />
+        <FriendsSelection friends={friends} selected={paidFor} label="Paid For" onChange={this.onPaidForChange} />
         <input type="submit" value="Submit" />
       </form>
     );
