@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 import { connect } from "react-redux";
 
-import FriendsSelection from "./form/friends-selection";
+import { Amount, Reason, FriendsSelection } from "./form";
 
 class Expenses extends Component {
   constructor(props) {
@@ -16,12 +16,12 @@ class Expenses extends Component {
     this.onPaidForChange = this.onFriendsSelection.bind(this, "paidFor");
   }
 
-  onReasonChange(event) {
-    this.setState({ reason: event.target.value });
+  onReasonChange(reason) {
+    this.setState({ reason });
   }
 
-  onAmountChange(event) {
-    this.setState({ amount: event.target.value });
+  onAmountChange(amount) {
+    this.setState({ amount });
   }
 
   onFriendsSelection(stateName, value) {
@@ -33,35 +33,16 @@ class Expenses extends Component {
     console.log(this.state);
   }
 
-  renderReason() {
-    return (
-      <div>
-        <label>
-          Reason <input type="text" value={this.state.reason} onChange={this.onReasonChange} />
-        </label>
-      </div>
-    );
-  }
-
-  renderAmount() {
-    return (
-      <div>
-        <label>
-          Amount <input type="number" value={this.state.amount} onChange={this.onAmountChange} />
-        </label>
-      </div>
-    );
-  }
-
   render() {
     const { friends } = this.props;
+    const { amount, reason } = this.state;
 
     return (
       <div>
         <h1>Expenses</h1>
         <form onSubmit={this.onSubmit}>
-          {this.renderReason()}
-          {this.renderAmount()}
+          <Reason reason={reason} onChange={this.onReasonChange} />
+          <Amount amount={amount} onChange={this.onAmountChange} />
           <FriendsSelection friends={friends} label="Paid By" onChange={this.onPaidByChange} />
           <FriendsSelection friends={friends} label="Paid For" onChange={this.onPaidForChange} />
           <input type="submit" value="Submit" />
