@@ -5,10 +5,10 @@ import { connect } from "react-redux";
 class Expenses extends Component {
   constructor(props) {
     super(props);
-    this.state = { amount: "" };
+    this.state = { amount: "", paidBy: [] };
 
-    this.handleAmount = this.handleAmount.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.onAmountChange = this.onAmountChange.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
     this.onPaidByChange = this.onPaidByChange.bind(this);
   }
 
@@ -17,7 +17,10 @@ class Expenses extends Component {
   }
 
   onPaidByChange(event) {
-    console.log(Array.from(event.target.selectedOptions));
+    const paidBy = Array.from(event.target.selectedOptions).map(option => {
+      return { id: option.value, name: option.text };
+    });
+    this.setState({ paidBy });
   }
 
   onSubmit(event) {
