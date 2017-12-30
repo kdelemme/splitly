@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 
 import ExpenseForm from "./expense-form";
+import { exec } from "child_process";
 
 class Expenses extends Component {
   constructor(props) {
@@ -18,6 +19,7 @@ class Expenses extends Component {
 
   render() {
     const { friends } = this.props;
+    const { expenses } = this.state;
 
     return (
       <div>
