@@ -2,16 +2,18 @@ import React, { Component } from "react";
 
 import { connect } from "react-redux";
 
+import FriendsSelection from "./form/friends-selection";
+
 class Expenses extends Component {
   constructor(props) {
     super(props);
     this.state = { reason: "", amount: "", paidBy: [], paidFor: [] };
 
-    this.onReasonChange - this.onReasonChange.bind(this);
+    this.onReasonChange = this.onReasonChange.bind(this);
     this.onAmountChange = this.onAmountChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
-    this.onPaidByChange = this.onPaidByChange.bind(this);
-    this.onPaidForChange = this.onPaidForChange.bind(this);
+    this.onPaidByChange = this.onFriendsSelection.bind(this, "paidBy");
+    this.onPaidForChange = this.onFriendsSelection.bind(this, "paidFor");
   }
 
   onReasonChange(event) {
@@ -22,14 +24,8 @@ class Expenses extends Component {
     this.setState({ amount: event.target.value });
   }
 
-  onPaidByChange(event) {
-    const paidBy = Array.from(event.target.selectedOptions).map(option => ({ id: option.value, name: option.text }));
-    this.setState({ paidBy });
-  }
-
-  onPaidForChange(event) {
-    const paidFor = Array.from(event.target.selectedOptions).map(option => ({ id: option.value, name: option.text }));
-    this.setState({ paidFor });
+  onFriendsSelection(stateName, value) {
+    this.setState({ [stateName]: value });
   }
 
   onSubmit(event) {
@@ -57,37 +53,17 @@ class Expenses extends Component {
     );
   }
 
-  renderFriendsSelection(label, onChange) {
-    const { friends } = this.props;
-    if (friends.length === 0) {
-      return null;
-    }
-
-    return (
-      <div>
-        <label>
-          {label}
-          <select multiple onChange={onChange}>
-            {friends.map(friend => (
-              <option key={friend.id} value={friend.id}>
-                {friend.name}
-              </option>
-            ))}
-          </select>
-        </label>
-      </div>
-    );
-  }
-
   render() {
+    const { friends } = this.props;
+
     return (
       <div>
         <h1>Expenses</h1>
         <form onSubmit={this.onSubmit}>
           {this.renderReason()}
           {this.renderAmount()}
-          {this.renderFriendsSelection("Paid By", this.onPaidByChange)}
-          {this.renderFriendsSelection("Paid For", this.onPaidForChange)}
+          <FriendsSelection friends={friends} label="Paid By" onChange={this.onPaidByChange} />
+          <FriendsSelection friends={friends} label="Paid For" onChange={this.onPaidForChange} />
           <input type="submit" value="Submit" />
         </form>
       </div>
