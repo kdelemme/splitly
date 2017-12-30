@@ -15,7 +15,7 @@ class FriendForm extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    this.props.onSubmit({ id: Math.ceil(Math.random() * 100000), name: this.state.name });
+    this.props.onSubmit({ name: this.state.name });
     this.setState({ name: "" });
   }
 
@@ -23,8 +23,7 @@ class FriendForm extends Component {
     return (
       <form onSubmit={this.handleSubmit}>
         <label>
-          Name
-          <input type="text" value={this.state.name} onChange={this.handleChange} />
+          Name <input type="text" value={this.state.name} onChange={this.handleChange} />
         </label>
         <input type="submit" value="Submit" />
       </form>
