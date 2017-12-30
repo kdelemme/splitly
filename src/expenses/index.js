@@ -7,12 +7,13 @@ import ExpenseForm from "./expense-form";
 class Expenses extends Component {
   constructor(props) {
     super(props);
+    this.state = { expenses: [] };
 
     this.onSubmit = this.onSubmit.bind(this);
   }
 
   onSubmit(expense) {
-    console.log(expense);
+    this.setState(prevState => ({ expenses: [...prevState, expense] }));
   }
 
   render() {
