@@ -6,7 +6,8 @@
   "author": "Kevin Delemme <kdelemme@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "parcel index.html"
+    "start": "parcel index.html",
+    "test": "jest"
   },
   "dependencies": {
     "react": "^16.2.0",
@@ -15,8 +16,12 @@
     "redux": "^3.7.2"
   },
   "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-jest": "^22.0.4",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
-    "prettier": "^1.9.2"
+    "jest": "^22.0.4",
+    "prettier": "^1.9.2",
+    "regenerator-runtime": "^0.11.1"
   }
 }
