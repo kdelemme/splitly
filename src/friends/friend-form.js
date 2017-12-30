@@ -20,10 +20,11 @@ class FriendForm extends Component {
   }
 
   render() {
+    const { name } = this.state;
     return (
       <form onSubmit={this.handleSubmit}>
         <label>
-          Name <input type="text" value={this.state.name} onChange={this.handleChange} />
+          Name <input type="text" value={name} onChange={this.handleChange} />
         </label>
         <input type="submit" value="Submit" />
       </form>
