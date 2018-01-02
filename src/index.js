@@ -8,12 +8,14 @@ import Expenses from "./expenses";
 
 import reducers from "./reducers";
 
+import "bootstrap/dist/css/bootstrap.min.css";
+
 const store = createStore(reducers);
 
 class App extends Component {
   render() {
     return (
-      <div>
+      <div className="container">
         <Friends />
         <Expenses />
       </div>

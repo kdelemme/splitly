@@ -13,7 +13,7 @@ export class Friends extends Component {
     const dispatchDeleteFriend = friend => dispatch(deleteFriend(friend));
 
     return (
-      <div>
+      <div className="row">
         <h1>Friends</h1>
         <FriendForm onSubmit={dispatchAddFriend} />
         <FriendList friends={friends} onDelete={dispatchDeleteFriend} />

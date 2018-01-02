@@ -21,7 +21,7 @@ class Expenses extends Component {
     const { expenses } = this.state;
 
     return (
-      <div>
+      <div className="row">
         <h1>Expenses</h1>
         <ExpenseForm friends={friends} onSubmit={this.onSubmit} />
       </div>
