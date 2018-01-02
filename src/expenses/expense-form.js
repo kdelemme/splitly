@@ -44,8 +44,20 @@ class ExpenseForm extends Component {
       <form className="form" onSubmit={this.onSubmit}>
         <Reason reason={reason} onChange={this.onReasonChange} />
         <Amount amount={amount} onChange={this.onAmountChange} />
-        <FriendsSelection friends={friends} selected={paidBy} label="Paid By" onChange={this.onPaidByChange} />
-        <FriendsSelection friends={friends} selected={paidFor} label="Paid For" onChange={this.onPaidForChange} />
+        <FriendsSelection
+          friends={friends}
+          multiple={false}
+          selected={paidBy}
+          label="Paid By"
+          onChange={this.onPaidByChange}
+        />
+        <FriendsSelection
+          friends={friends}
+          multiple={true}
+          selected={paidFor}
+          label="Paid For"
+          onChange={this.onPaidForChange}
+        />
         <button type="submit" className="btn btn-primary">
           Submit
         </button>

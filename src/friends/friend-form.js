@@ -25,7 +25,7 @@ class FriendForm extends Component {
       <form onSubmit={this.handleSubmit}>
         <div className="form-group">
           <label>
-            Name <input type="text" value={name} onChange={this.handleChange} />
+            Name <input className="form-control" type="text" value={name} onChange={this.handleChange} />
           </label>
         </div>
         <button type="submit" className="btn btn-primary">
