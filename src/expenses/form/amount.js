@@ -16,7 +16,7 @@ class Amount extends Component {
     return (
       <div className="form-group">
         <label>
-          Amount <input className="form-control" type="number" value={amount} onChange={this.onChange} />
+          Amount <input className="form-control" type="text" value={amount} onChange={this.onChange} />
         </label>
       </div>
     );
