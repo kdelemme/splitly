@@ -23,17 +23,15 @@ class FriendsSelection extends Component {
     }
 
     return (
-      <div>
-        <label>
-          {label}
-          <select multiple onChange={this.onChange} value={selected.map(s => s.id)}>
-            {friends.map(friend => (
-              <option key={friend.id} value={friend.id}>
-                {friend.name}
-              </option>
-            ))}
-          </select>
-        </label>
+      <div className="form-group">
+        <label>{label}</label>
+        <select className="form-control" multiple onChange={this.onChange} value={selected.map(s => s.id)}>
+          {friends.map(friend => (
+            <option key={friend.id} value={friend.id}>
+              {friend.name}
+            </option>
+          ))}
+        </select>
       </div>
     );
   }

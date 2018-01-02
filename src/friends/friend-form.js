@@ -23,10 +23,14 @@ class FriendForm extends Component {
     const { name } = this.state;
     return (
       <form onSubmit={this.handleSubmit}>
-        <label>
-          Name <input type="text" value={name} onChange={this.handleChange} />
-        </label>
-        <input type="submit" value="Submit" />
+        <div className="form-group">
+          <label>
+            Name <input type="text" value={name} onChange={this.handleChange} />
+          </label>
+        </div>
+        <button type="submit" className="btn btn-primary">
+          Submit
+        </button>
       </form>
     );
   }

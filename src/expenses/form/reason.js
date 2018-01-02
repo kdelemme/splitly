@@ -14,9 +14,9 @@ class Reason extends Component {
   render() {
     const { reason } = this.props;
     return (
-      <div>
+      <div className="form-group">
         <label>
-          Reason <input type="text" value={reason} onChange={this.onChange} />
+          Reason <input className="form-control" type="text" value={reason} onChange={this.onChange} />
         </label>
       </div>
     );

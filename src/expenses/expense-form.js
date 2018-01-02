@@ -41,12 +41,14 @@ class ExpenseForm extends Component {
     const { amount, reason, paidBy, paidFor } = this.state;
 
     return (
-      <form onSubmit={this.onSubmit}>
+      <form className="form" onSubmit={this.onSubmit}>
         <Reason reason={reason} onChange={this.onReasonChange} />
         <Amount amount={amount} onChange={this.onAmountChange} />
         <FriendsSelection friends={friends} selected={paidBy} label="Paid By" onChange={this.onPaidByChange} />
         <FriendsSelection friends={friends} selected={paidFor} label="Paid For" onChange={this.onPaidForChange} />
-        <input type="submit" value="Submit" />
+        <button type="submit" className="btn btn-primary">
+          Submit
+        </button>
       </form>
     );
   }

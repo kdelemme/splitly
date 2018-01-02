@@ -14,9 +14,9 @@ class Amount extends Component {
   render() {
     const { amount } = this.props;
     return (
-      <div>
+      <div className="form-group">
         <label>
-          Amount <input type="number" value={amount} onChange={this.onChange} />
+          Amount <input className="form-control" type="number" value={amount} onChange={this.onChange} />
         </label>
       </div>
     );
