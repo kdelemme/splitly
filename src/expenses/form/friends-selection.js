@@ -21,11 +21,12 @@ class FriendsSelection extends Component {
     if (friends.length === 0) {
       return null;
     }
+    const selectedValues = multiple ? selected.map(s => s.id) : selected.id;
 
     return (
       <div className="form-group">
         <label>{label}</label>
-        <select className="form-control" multiple={multiple} onChange={this.onChange} value={selected.map(s => s.id)}>
+        <select className="form-control" multiple={multiple} onChange={this.onChange} value={selectedValues}>
           {friends.map(friend => (
             <option key={friend.id} value={friend.id}>
               {friend.name}
