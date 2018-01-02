@@ -22,8 +22,8 @@ class ExpenseForm extends Component {
     this.setState({ amount });
   }
 
-  onFriendsSelection(stateName, value) {
-    this.setState({ [stateName]: value });
+  onFriendsSelection(stateProp, value) {
+    this.setState({ [stateProp]: value });
   }
 
   onSubmit(event) {
