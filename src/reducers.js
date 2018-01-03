@@ -1,9 +1,11 @@
 import { combineReducers } from "redux";
 
 import friends from "./friends/reducers";
+import expenses from "./expenses/reducers";
 
 const reducers = combineReducers({
-  friends
+  friends,
+  expenses
 });
 
 export default reducers;

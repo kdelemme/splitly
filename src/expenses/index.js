@@ -5,27 +5,17 @@ import { connect } from "react-redux";
 import ExpenseForm from "./expense-form";
 import ExpenseList from "./expense-list";
 
+import { addExpense } from "./actions";
+
 class Expenses extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { expenses: [] };
-
-    this.onSubmit = this.onSubmit.bind(this);
-  }
-
-  onSubmit(expense) {
-    expense.id = Math.ceil(Math.random() * 100000);
-    this.setState(({ expenses }) => ({ expenses: [...expenses, expense] }));
-  }
-
   render() {
-    const { friends } = this.props;
-    const { expenses } = this.state;
+    const { friends, expenses, dispatch } = this.props;
+    const dispatchAddExpense = expense => dispatch(addExpense(expense));
 
     return (
       <div className="row">
         <h1>Expenses</h1>
-        <ExpenseForm friends={friends} onSubmit={this.onSubmit} />
+        <ExpenseForm friends={friends} onSubmit={dispatchAddExpense} />
         <ExpenseList expenses={expenses} />
       </div>
     );
