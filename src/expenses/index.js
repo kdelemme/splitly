@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 
 import ExpenseForm from "./expense-form";
+import ExpenseList from "./expense-list";
 
 class Expenses extends Component {
   constructor(props) {
@@ -13,7 +14,8 @@ class Expenses extends Component {
   }
 
   onSubmit(expense) {
-    this.setState(prevState => ({ expenses: [...prevState, expense] }));
+    expense.id = Math.ceil(Math.random() * 100000);
+    this.setState(({ expenses }) => ({ expenses: [...expenses, expense] }));
   }
 
   render() {
@@ -24,6 +26,7 @@ class Expenses extends Component {
       <div className="row">
         <h1>Expenses</h1>
         <ExpenseForm friends={friends} onSubmit={this.onSubmit} />
+        <ExpenseList expenses={expenses} />
       </div>
     );
   }
