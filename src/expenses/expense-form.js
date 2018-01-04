@@ -5,7 +5,7 @@ import { Amount, Reason, FriendsSelection } from "./form";
 class ExpenseForm extends Component {
   constructor(props) {
     super(props);
-    this.state = { reason: "", amount: "", paidBy: [], paidFor: [] };
+    this.state = { reason: "", amount: "", paidBy: {}, paidFor: [] };
 
     this.onReasonChange = this.onReasonChange.bind(this);
     this.onAmountChange = this.onAmountChange.bind(this);
@@ -33,7 +33,7 @@ class ExpenseForm extends Component {
   }
 
   resetState() {
-    this.setState({ reason: "", amount: "", paidBy: [], paidFor: [] });
+    this.setState({ reason: "", amount: "", paidBy: {}, paidFor: [] });
   }
 
   render() {
@@ -44,20 +44,8 @@ class ExpenseForm extends Component {
       <form className="form" onSubmit={this.onSubmit}>
         <Reason reason={reason} onChange={this.onReasonChange} />
         <Amount amount={amount} onChange={this.onAmountChange} />
-        <FriendsSelection
-          friends={friends}
-          multiple={false}
-          selected={paidBy}
-          label="Paid By"
-          onChange={this.onPaidByChange}
-        />
-        <FriendsSelection
-          friends={friends}
-          multiple={true}
-          selected={paidFor}
-          label="Paid For"
-          onChange={this.onPaidForChange}
-        />
+        <FriendsSelection friends={friends} multiple={false} label="Paid By" onChange={this.onPaidByChange} />
+        <FriendsSelection friends={friends} multiple={true} label="Paid For" onChange={this.onPaidForChange} />
         <button type="submit" className="btn btn-primary">
           Submit
         </button>

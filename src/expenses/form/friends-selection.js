@@ -8,25 +8,25 @@ class FriendsSelection extends Component {
   }
 
   onChange(event) {
-    this.props.onChange(
-      Array.from(event.target.selectedOptions).map(option => ({
-        id: option.value,
-        name: option.text
-      }))
-    );
+    const { multiple } = this.props;
+    const selectedFriends = Array.from(event.target.selectedOptions).map(option => ({
+      id: option.value,
+      name: option.text
+    }));
+
+    this.props.onChange(multiple ? selectedFriends : selectedFriends[0]);
   }
 
   render() {
-    const { friends, label, multiple, selected } = this.props;
+    const { friends, label, multiple } = this.props;
     if (friends.length === 0) {
       return null;
     }
-    const selectedValues = multiple ? selected.map(s => s.id) : selected.id;
 
     return (
       <div className="form-group">
         <label>{label}</label>
-        <select className="form-control" multiple={multiple} onChange={this.onChange} value={selectedValues}>
+        <select className="form-control" multiple={multiple} onChange={this.onChange}>
           {friends.map(friend => (
             <option key={friend.id} value={friend.id}>
               {friend.name}
