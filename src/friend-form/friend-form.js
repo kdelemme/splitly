@@ -29,11 +29,10 @@ class FriendForm extends Component {
     return (
       <div className="row">
         <h1>Add friend</h1>
-        <form onSubmit={this.handleSubmit}>
+        <form className="form-inline" onSubmit={this.handleSubmit}>
           <div className="form-group">
-            <label>
-              Name <input className="form-control" type="text" value={name} onChange={this.handleChange} />
-            </label>
+            <label>Name</label>
+            <input className="form-control" type="text" value={name} onChange={this.handleChange} />
           </div>
           <button type="submit" className="btn btn-primary">
             Submit

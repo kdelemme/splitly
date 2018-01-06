@@ -44,7 +44,7 @@ class ExpenseForm extends Component {
     const { amount, reason, paidBy, paidFor } = this.state;
 
     return (
-      <div>
+      <div className="row">
         <h1>Add expense</h1>
         <form className="form" onSubmit={this.onSubmit}>
           <div className="form-row">

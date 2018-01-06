@@ -6,7 +6,7 @@ class Expenses extends Component {
     const { expenses } = this.props;
 
     return (
-      <div>
+      <div className="row">
         <h1>Expenses</h1>
         <ul>
           {expenses.map(expense => (
