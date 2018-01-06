@@ -14,10 +14,9 @@ class Amount extends Component {
   render() {
     const { amount } = this.props;
     return (
-      <div className="form-group">
-        <label>
-          Amount <input className="form-control" type="text" value={amount} onChange={this.onChange} />
-        </label>
+      <div className="form-group col-sm-6">
+        <label>Amount</label>
+        <input className="form-control" type="text" value={amount} onChange={this.onChange} />
       </div>
     );
   }
