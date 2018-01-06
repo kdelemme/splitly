@@ -8,7 +8,6 @@ class FriendsSelection extends Component {
   }
 
   onChange(event) {
-    console.log(event);
     const { multiple } = this.props;
     const selectedFriends = Array.from(event.target.selectedOptions).map(option => ({
       id: option.value,
