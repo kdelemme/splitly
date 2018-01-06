@@ -5,6 +5,7 @@ import { createStore } from "redux";
 
 import Friends from "./friends";
 import Expenses from "./expenses";
+import ExpenseList from "./expenses/expense-list";
 
 import reducers from "./reducers";
 
@@ -18,6 +19,7 @@ class App extends Component {
       <div className="container">
         <Friends />
         <Expenses />
+        <ExpenseList />
       </div>
     );
   }

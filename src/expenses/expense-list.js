@@ -1,15 +1,20 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 
 class ExpenseList extends Component {
   render() {
-    const expenses = this.props.expenses.map(expense => (
-      <li key={expense.id}>
-        {expense.amount} paid by {expense.paidBy.name} for {expense.paidFor.length} friends
-      </li>
-    ));
+    const { expenses } = this.props;
 
-    return <ul>{expenses}</ul>;
+    return (
+      <ul>
+        {expenses.map(expense => (
+          <li key={expense.id}>
+            {expense.amount} paid by {expense.paidBy.name} for {expense.paidFor.length} friends
+          </li>
+        ))}
+      </ul>
+    );
   }
 }
 
-export default ExpenseList;
+export default connect(state => state)(ExpenseList);
