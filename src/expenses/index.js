@@ -1,18 +1,20 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
-import ExpenseForm from "./expense-form";
-import { addExpense } from "./actions";
-
 class Expenses extends Component {
   render() {
-    const { friends, dispatch } = this.props;
-    const dispatchAddExpense = expense => dispatch(addExpense(expense));
+    const { expenses } = this.props;
 
     return (
-      <div className="row">
+      <div>
         <h1>Expenses</h1>
-        <ExpenseForm friends={friends} onSubmit={dispatchAddExpense} />
+        <ul>
+          {expenses.map(expense => (
+            <li key={expense.id}>
+              {expense.amount} paid by {expense.paidBy.name} for {expense.paidFor.length} friends
+            </li>
+          ))}
+        </ul>
       </div>
     );
   }

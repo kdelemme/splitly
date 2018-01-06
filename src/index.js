@@ -4,8 +4,8 @@ import { Provider } from "react-redux";
 import { createStore } from "redux";
 
 import Friends from "./friends";
+import ExpenseForm from "./expense-form";
 import Expenses from "./expenses";
-import ExpenseList from "./expenses/expense-list";
 
 import reducers from "./reducers";
 
@@ -18,8 +18,8 @@ class App extends Component {
     return (
       <div className="container">
         <Friends />
+        <ExpenseForm />
         <Expenses />
-        <ExpenseList />
       </div>
     );
   }

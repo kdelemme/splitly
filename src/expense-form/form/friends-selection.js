@@ -8,6 +8,7 @@ class FriendsSelection extends Component {
   }
 
   onChange(event) {
+    console.log(event);
     const { multiple } = this.props;
     const selectedFriends = Array.from(event.target.selectedOptions).map(option => ({
       id: option.value,
@@ -24,7 +25,7 @@ class FriendsSelection extends Component {
     }
 
     return (
-      <div class="form-row">
+      <div className="form-row">
         <div className="form-group col-sm-6">
           <label>{label}</label>
           <select className="form-control" multiple={multiple} onChange={this.onChange}>

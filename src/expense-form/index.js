@@ -1,6 +1,8 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 
 import { Amount, Reason, FriendsSelection } from "./form";
+import { addExpense } from "./actions";
 
 class ExpenseForm extends Component {
   constructor(props) {
@@ -27,8 +29,9 @@ class ExpenseForm extends Component {
   }
 
   onSubmit(event) {
+    const { dispatch } = this.props;
     event.preventDefault();
-    this.props.onSubmit(this.state);
+    dispatch(addExpense(this.state));
     this.resetState();
   }
 
@@ -41,19 +44,22 @@ class ExpenseForm extends Component {
     const { amount, reason, paidBy, paidFor } = this.state;
 
     return (
-      <form className="form" onSubmit={this.onSubmit}>
-        <div className="form-row">
-          <Reason reason={reason} onChange={this.onReasonChange} />
-          <Amount amount={amount} onChange={this.onAmountChange} />
-        </div>
-        <FriendsSelection friends={friends} multiple={false} label="Paid By" onChange={this.onPaidByChange} />
-        <FriendsSelection friends={friends} multiple={true} label="Paid For" onChange={this.onPaidForChange} />
-        <button type="submit" className="btn btn-primary">
-          Submit
-        </button>
-      </form>
+      <div>
+        <h1>Add expense</h1>
+        <form className="form" onSubmit={this.onSubmit}>
+          <div className="form-row">
+            <Reason reason={reason} onChange={this.onReasonChange} />
+            <Amount amount={amount} onChange={this.onAmountChange} />
+          </div>
+          <FriendsSelection friends={friends} multiple={false} label="Paid By" onChange={this.onPaidByChange} />
+          <FriendsSelection friends={friends} multiple={true} label="Paid For" onChange={this.onPaidForChange} />
+          <button type="submit" className="btn btn-primary">
+            Submit
+          </button>
+        </form>
+      </div>
     );
   }
 }
 
-export default ExpenseForm;
+export default connect(state => state)(ExpenseForm);
