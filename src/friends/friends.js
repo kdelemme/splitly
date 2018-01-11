@@ -5,7 +5,7 @@ import { deleteFriend } from "./actions";
 class Friends extends Component {
   render() {
     const { friends, dispatch } = this.props;
-    const dispatchDeleteFriend = () => dispatch(deleteFriend(friend));
+    const dispatchDeleteFriend = friend => dispatch(deleteFriend(friend));
 
     return (
       <div className="row">
@@ -14,7 +14,7 @@ class Friends extends Component {
           {friends.map(friend => (
             <li key={friend.id}>
               {friend.name}{" "}
-              <button className="btn btn-xs btn-danger" onClick={dispatchDeleteFriend}>
+              <button className="btn btn-xs btn-danger" onClick={dispatchDeleteFriend.bind(this, friend)}>
                 delete
               </button>
             </li>

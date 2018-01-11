@@ -18,10 +18,16 @@ class App extends Component {
   render() {
     return (
       <div className="container">
-        <FriendForm />
-        <Friends />
-        <ExpenseForm />
-        <Expenses />
+        <div className="row">
+          <div className="col-sm-4">
+            <FriendForm />
+            <Friends />
+          </div>
+          <div className="col-sm-8">
+            <ExpenseForm />
+            <Expenses />
+          </div>
+        </div>
       </div>
     );
   }
