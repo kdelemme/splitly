@@ -11,7 +11,7 @@ class Expenses extends Component {
         <ul>
           {expenses.map(expense => (
             <li key={expense.id}>
-              {expense.amount} paid by {expense.paidBy.name} for {expense.paidFor.length} friends
+              {expense.amount} paid by [{expense.paidBy.name}] for [{expense.paidFor.map(f => f.name).join(",")}]
             </li>
           ))}
         </ul>
