@@ -1,6 +1,6 @@
 import React from "react";
 import { shallow } from "enzyme";
-import FriendForm from "./friend-form";
+import { FriendForm } from "./friend-form";
 
 describe("<FriendForm />", () => {
   const EMPTY_FUNCTION = () => {};
@@ -19,18 +19,19 @@ describe("<FriendForm />", () => {
   });
 
   test("should reset the name state on submit", () => {
-    const wrapper = shallow(<FriendForm onSubmit={EMPTY_FUNCTION} />);
+    const dispatchSpy = jest.fn();
+    const wrapper = shallow(<FriendForm dispatch={dispatchSpy} />);
     wrapper.find('input[type="text"]').simulate("change", CHANGE_EVENT("John"));
     wrapper.find("form").simulate("submit", EMPTY_EVENT);
     expect(wrapper.state("name")).toBe("");
   });
 
   test("should pass the name in the onSubmit callback", () => {
-    const onSubmitSpy = jest.fn();
-    const wrapper = shallow(<FriendForm onSubmit={onSubmitSpy} />);
+    const dispatchSpy = jest.fn();
+    const wrapper = shallow(<FriendForm dispatch={dispatchSpy} />);
     wrapper.find('input[type="text"]').simulate("change", CHANGE_EVENT("John"));
     wrapper.find("form").simulate("submit", EMPTY_EVENT);
 
-    expect(onSubmitSpy).toHaveBeenCalledWith({ name: "John" });
+    expect(dispatchSpy).toHaveBeenCalledWith(expect.objectContaining({ name: "John", type: "ADD_FRIEND" }));
   });
 });

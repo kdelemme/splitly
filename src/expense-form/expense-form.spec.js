@@ -1,6 +1,6 @@
 import React from "react";
 import { shallow } from "enzyme";
-import ExpenseForm from ".";
+import { ExpenseForm } from "./expense-form";
 
 describe("<ExpenseForm />", () => {
   test("should initialize the state with default values", () => {

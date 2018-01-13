@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { deleteFriend } from "./actions";
 
-class Friends extends Component {
+export class Friends extends Component {
   render() {
     const { friends, dispatch } = this.props;
     const dispatchDeleteFriend = friend => dispatch(deleteFriend(friend));

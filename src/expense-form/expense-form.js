@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { Amount, Reason, FriendsSelection } from "./form";
 import { addExpense } from "./actions";
 
-class ExpenseForm extends Component {
+export class ExpenseForm extends Component {
   constructor(props) {
     super(props);
     this.state = { reason: "", amount: "", paidBy: {}, paidFor: [] };
