@@ -17,6 +17,8 @@ const friends = (state = [], action) => {
 const expenses = (state = [], action) => {
   if (action.type === ADD_EXPENSE) {
     return [...state, action.payload];
+  } else if (action.type === DELETE_FRIEND) {
+    return state.filter(expense => expense.paidBy.id != action.id); //TODO filter paidFor array too
   } else {
     return state;
   }
