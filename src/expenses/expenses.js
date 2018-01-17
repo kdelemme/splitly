@@ -8,10 +8,12 @@ class Expenses extends Component {
     return (
       <div className="row">
         <h1>Expenses</h1>
-        <ul>
+        <ul className="list list-unstyled">
           {expenses.map(expense => (
             <li key={expense.id}>
-              {expense.amount} paid by [{expense.paidBy.name}] for [{expense.paidFor.map(f => f.name).join(",")}]
+              <p className="lead p-b-0">{expense.amount} for {expense.reason}</p>
+              <p className="small">Paid by {expense.paidBy.name}</p>
+              <p className="small">Involving: {expense.paidFor.map(f => f.name).join(", ")}</p>
             </li>
           ))}
         </ul>
