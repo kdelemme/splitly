@@ -14,11 +14,17 @@ const friends = (state = [], action) => {
   }
 };
 
+const removeFriendFromParticipants = (expense, id) => {
+  return Object.assign({}, expense, { paidFor: expense.paidFor.filter(friend => friend.id != id) });
+}
+
 const expenses = (state = [], action) => {
   if (action.type === ADD_EXPENSE) {
     return [...state, action.payload];
   } else if (action.type === DELETE_FRIEND) {
-    return state.filter(expense => expense.paidBy.id != action.id); //TODO filter paidFor array too
+    return state
+      .filter(expense => expense.paidBy.id != action.id)
+      .map(expense => removeFriendFromParticipants(expense, action.id))
   } else {
     return state;
   }
