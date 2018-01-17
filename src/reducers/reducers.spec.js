@@ -28,7 +28,7 @@ describe("reducers", () => {
     expect(newState.expenses).toHaveLength(0);
   });
 
-  it("shoud delete friends from paidFor list in expenses", () => {
+  it("shoud delete friends from participants list in expenses", () => {
     const friends = [aFriend(1, "Bob"), aFriend(2, "Paul")]
     const state = {
       friends,
@@ -37,7 +37,7 @@ describe("reducers", () => {
     const newState = reducers(state, deleteFriend({ id: 2 }));
     expect(newState.friends).toHaveLength(1);
     expect(newState.expenses).toHaveLength(1);
-    expect(newState.expenses).toMatchObject([{ paidFor: [{ name: "Bob" }] }]);
+    expect(newState.expenses).toMatchObject([{ participants: [{ name: "Bob" }] }]);
   });
 });
 
@@ -45,6 +45,6 @@ function aFriend(id, name) {
   return { id, name };
 }
 
-function anExpense(amount, reason, paidBy, paidFor) {
-  return { amount, reason, paidBy, paidFor };
+function anExpense(amount, reason, paidBy, participants) {
+  return { amount, reason, paidBy, participants };
 }

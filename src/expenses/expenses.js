@@ -13,7 +13,7 @@ class Expenses extends Component {
             <li key={expense.id}>
               <p className="lead p-b-0">{expense.amount} for {expense.reason}</p>
               <p className="small">Paid by {expense.paidBy.name}</p>
-              <p className="small">Involving: {expense.paidFor.map(f => f.name).join(", ")}</p>
+              <p className="small">Involving: {expense.participants.map(p => p.name).join(", ")}</p>
             </li>
           ))}
         </ul>

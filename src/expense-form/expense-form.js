@@ -7,13 +7,13 @@ import { addExpense } from "./actions";
 export class ExpenseForm extends Component {
   constructor(props) {
     super(props);
-    this.state = { reason: "", amount: "", paidBy: {}, paidFor: [] };
+    this.state = { reason: "", amount: "", paidBy: {}, participants: [] };
 
     this.onReasonChange = this.onReasonChange.bind(this);
     this.onAmountChange = this.onAmountChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
     this.onPaidByChange = this.onFriendsSelection.bind(this, "paidBy");
-    this.onPaidForChange = this.onFriendsSelection.bind(this, "paidFor");
+    this.onParticipantsChange = this.onFriendsSelection.bind(this, "participants");
   }
 
   onReasonChange(reason) {
@@ -29,19 +29,19 @@ export class ExpenseForm extends Component {
   }
 
   onSubmit(event) {
-    const { dispatch } = this.props;
     event.preventDefault();
+    const { dispatch } = this.props;
     dispatch(addExpense(this.state));
     this.resetState();
   }
 
   resetState() {
-    this.setState({ reason: "", amount: "", paidBy: {}, paidFor: [] });
+    this.setState({ reason: "", amount: "", paidBy: {}, participants: [] });
   }
 
   render() {
     const { friends } = this.props;
-    const { amount, reason, paidBy, paidFor } = this.state;
+    const { amount, reason, paidBy, participants } = this.state;
 
     return (
       <div className="row">
@@ -52,7 +52,7 @@ export class ExpenseForm extends Component {
             <Amount amount={amount} onChange={this.onAmountChange} />
           </div>
           <FriendsSelection friends={friends} multiple={false} label="Paid By" onChange={this.onPaidByChange} />
-          <FriendsSelection friends={friends} multiple={true} label="Paid For" onChange={this.onPaidForChange} />
+          <FriendsSelection friends={friends} multiple={true} label="Participants" onChange={this.onParticipantsChange} />
           <button type="submit" className="btn btn-primary">
             Submit
           </button>
