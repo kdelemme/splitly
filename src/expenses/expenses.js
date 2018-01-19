@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
+import Expense from "./expense";
+
 class Expenses extends Component {
   constructor(props) {
     super(props);
@@ -22,15 +24,12 @@ class Expenses extends Component {
         <h1>Expenses</h1>
         <ul className="list list-unstyled">
           {expenses.map(expense => (
-            <li key={expense.id} onClick={() => this.toggle(expense.id)}>
-              <p className="lead p-b-0">{expense.amount} for {expense.reason}</p>
-              {toggled == expense.id &&
-                (<div>
-                  <p className="small">Paid by {expense.paidBy.name}</p>
-                  <p className="small">Involve: {expense.participants.map(p => p.name).join(", ")}</p>
-                </div>)
-              }
-            </li>
+            <Expense
+              key={expense.id}
+              expense={expense}
+              toggled={toggled === expense.id}
+              onToggle={() => this.toggle(expense.id)}
+            />
           ))}
         </ul>
       </div >
