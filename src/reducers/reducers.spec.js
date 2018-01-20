@@ -13,7 +13,7 @@ describe("reducers", () => {
 
   it("shoud delete friend from friends list", () => {
     const state = { friends: [aFriend(1, "Bob"), aFriend(2, "Paul")], expenses: [] };
-    const newState = reducers(state, deleteFriend({ id: 1 }));
+    const newState = reducers(state, deleteFriend(1));
     expect(newState.friends).toHaveLength(1);
   });
 
@@ -23,7 +23,7 @@ describe("reducers", () => {
       friends,
       expenses: [anExpense(1120, "rent", aFriend(1, "Bob"), friends)]
     };
-    const newState = reducers(state, deleteFriend({ id: 1 }));
+    const newState = reducers(state, deleteFriend(1));
     expect(newState.friends).toHaveLength(1);
     expect(newState.expenses).toHaveLength(0);
   });
@@ -34,7 +34,7 @@ describe("reducers", () => {
       friends,
       expenses: [anExpense(1120, "rent", aFriend(1, "Bob"), friends)]
     };
-    const newState = reducers(state, deleteFriend({ id: 2 }));
+    const newState = reducers(state, deleteFriend(2));
     expect(newState.friends).toHaveLength(1);
     expect(newState.expenses).toHaveLength(1);
     expect(newState.expenses).toMatchObject([{ participants: [{ name: "Bob" }] }]);
