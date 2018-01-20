@@ -1,26 +1,26 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { Friend } from "./friend";
 import { deleteFriend } from "./actions";
+
+const mapStateToProps = (state) => ({ friends: state.friends });
+const mapDispatchToProps = (dispatch) => ({
+  dispatchDeleteFriend: (id) => () => dispatch(deleteFriend(id))
+});
 
 export class Friends extends Component {
   render() {
-    const { friends, dispatch } = this.props;
-    const dispatchDeleteFriend = friend => dispatch(deleteFriend(friend));
+    const { friends, dispatchDeleteFriend } = this.props;
 
     return (
       <div className="row">
         <h1 className="col-12">Friends</h1>
         <ul className="col-12">
-          {friends.map(friend => (
-            <li key={friend.id} className="list-group-item d-flex justify-content-between align-items-center">
-              {friend.name}
-              <button type="buton" className="close" onClick={dispatchDeleteFriend.bind(this, friend)}><span aria-hidden="true">&times;</span></button>
-            </li>
-          ))}
+          {friends.map(friend => <Friend key={friend.id} {...friend} onDelete={dispatchDeleteFriend} />)}
         </ul>
       </div>
     );
   }
 }
 
-export default connect(state => state)(Friends);
+export default connect(mapStateToProps, mapDispatchToProps)(Friends);
