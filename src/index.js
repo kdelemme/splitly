@@ -16,11 +16,11 @@ class App extends Component {
     return (
       <div className="container">
         <div className="row">
-          <div className="col-sm-4">
+          <div className="col-12 col-md-4">
             <FriendForm />
             <Friends />
           </div>
-          <div className="col-sm-8">
+          <div className="col-12 col-md-8">
             <ExpenseForm />
             <Expenses />
           </div>

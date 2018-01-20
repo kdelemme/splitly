@@ -21,8 +21,8 @@ class Expenses extends Component {
 
     return (
       <div className="row">
-        <h1>Expenses</h1>
-        <ul className="list list-unstyled">
+        <h1 className="col-12">Expenses</h1>
+        <ul className="col-12 list list-unstyled">
           {expenses.map(expense => (
             <Expense
               key={expense.id}

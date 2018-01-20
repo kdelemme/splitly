@@ -28,13 +28,13 @@ export class FriendForm extends Component {
 
     return (
       <div className="row">
-        <h1>Add friend</h1>
-        <form className="form" onSubmit={this.handleSubmit}>
-          <div className="form-group col-sm-6">
+        <h1 className="col-12">Add friend</h1>
+        <form className="form col-12" onSubmit={this.handleSubmit}>
+          <div className="form-group">
             <label>Name</label>
             <input className="form-control" type="text" value={name} onChange={this.handleChange} />
           </div>
-          <div className="form-group col-sm-12">
+          <div className="form-group">
             <button type="submit" className="btn btn-primary">
               Submit
             </button>

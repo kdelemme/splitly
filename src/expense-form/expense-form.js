@@ -45,8 +45,8 @@ export class ExpenseForm extends Component {
 
     return (
       <div className="row">
-        <h1>Add expense</h1>
-        <form className="form" onSubmit={this.onSubmit}>
+        <h1 className="col-12">Add expense</h1>
+        <form className="form col-12" onSubmit={this.onSubmit}>
           <div className="form-row">
             <Reason reason={reason} onChange={this.onReasonChange} />
             <Amount amount={amount} onChange={this.onAmountChange} />
