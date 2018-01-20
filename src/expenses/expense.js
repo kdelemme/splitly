@@ -9,7 +9,7 @@ class Expense extends Component {
 
     return (
       <div>
-        <p className="small">Paid by {expense.paidBy.name}</p>
+        <p className="small mb-0">Paid by {expense.paidBy.name}</p>
         <p className="small">Involve: {expense.participants.map(p => p.name).join(", ")}</p>
       </div>
     )
@@ -20,7 +20,7 @@ class Expense extends Component {
 
     return (
       <li key={expense.id} onClick={onToggle}>
-        <p className="lead p-b-0">{expense.amount} for {expense.reason}</p>
+        <p className="lead mb-0">{expense.amount} for {expense.reason}</p>
         {this.renderDetails(toggled, expense)}
       </li>
     );

@@ -10,13 +10,11 @@ export class Friends extends Component {
     return (
       <div className="row">
         <h1 className="col-12">Friends</h1>
-        <ul className="col-12 list list-unstyled">
+        <ul className="col-12">
           {friends.map(friend => (
-            <li key={friend.id}>
-              {friend.name}{" "}
-              <button className="btn btn-sm btn-danger" onClick={dispatchDeleteFriend.bind(this, friend)}>
-                delete
-              </button>
+            <li key={friend.id} className="list-group-item d-flex justify-content-between align-items-center">
+              {friend.name}
+              <button type="buton" className="close" onClick={dispatchDeleteFriend.bind(this, friend)}><span aria-hidden="true">&times;</span></button>
             </li>
           ))}
         </ul>
