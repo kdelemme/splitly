@@ -1,9 +1,8 @@
-export const ADD_FRIEND = "ADD_FRIEND";
+import { v4 } from 'uuid';
 
-export const addFriend = friend => {
-  return {
-    type: ADD_FRIEND,
-    id: Math.ceil(Math.random() * 100000),
-    name: friend.name
-  };
-};
+export const ADD_FRIEND = "ADD_FRIEND";
+export const addFriend = friend => ({
+  type: ADD_FRIEND,
+  id: v4(),
+  name: friend.name
+});

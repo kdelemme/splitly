@@ -1,9 +1,7 @@
-export const ADD_EXPENSE = "ADD_EXPENSE";
+import { v4 } from 'uuid';
 
-export const addExpense = expense => {
-  const payload = Object.assign({ id: Math.ceil(Math.random() * 100000) }, expense);
-  return {
-    type: ADD_EXPENSE,
-    payload
-  };
-};
+export const ADD_EXPENSE = "ADD_EXPENSE";
+export const addExpense = expense => ({
+  type: ADD_EXPENSE,
+  payload: Object.assign({ id: v4() }, expense),
+});
