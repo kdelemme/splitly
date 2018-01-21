@@ -31,16 +31,9 @@ export class FriendForm extends Component {
     return (
       <div className="row">
         <h1 className="col-12">Add friend</h1>
-        <form className="form col-12" onSubmit={this.handleSubmit}>
-          <div className="form-group">
-            <label>Name</label>
-            <input className="form-control" type="text" value={name} onChange={this.handleChange} />
-          </div>
-          <div className="form-group">
-            <button type="submit" className="btn btn-primary">
-              Submit
-            </button>
-          </div>
+        <form className="form-inline col-12" onSubmit={this.handleSubmit}>
+          <input className="form-control form-control-sm" type="text" value={name} onChange={this.handleChange} placeholder="Name" />
+          <button type="submit" className="btn btn-primary btn-sm ml-sm-2">Add</button>
         </form>
       </div>
     );

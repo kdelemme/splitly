@@ -53,7 +53,7 @@ export class ExpenseForm extends Component {
           </div>
           <FriendsSelection friends={friends} multiple={false} label="Paid By" onChange={this.onPaidByChange} />
           <FriendsSelection friends={friends} multiple={true} label="Participants" onChange={this.onParticipantsChange} />
-          <button type="submit" className="btn btn-primary">
+          <button type="submit" className="btn btn-primary btn-sm">
             Submit
           </button>
         </form>
