@@ -3,7 +3,7 @@ import { shallow } from "enzyme";
 import { FriendForm } from "./friend-form";
 
 describe("<FriendForm />", () => {
-  const EMPTY_FUNCTION = () => {};
+  const EMPTY_FUNCTION = () => { };
   const EMPTY_EVENT = { preventDefault: EMPTY_FUNCTION };
   const CHANGE_EVENT = value => ({ target: { value } });
 
@@ -20,7 +20,7 @@ describe("<FriendForm />", () => {
 
   test("should reset the name state on submit", () => {
     const dispatchSpy = jest.fn();
-    const wrapper = shallow(<FriendForm dispatch={dispatchSpy} />);
+    const wrapper = shallow(<FriendForm dispatchAddFriend={dispatchSpy} />);
     wrapper.find('input[type="text"]').simulate("change", CHANGE_EVENT("John"));
     wrapper.find("form").simulate("submit", EMPTY_EVENT);
     expect(wrapper.state("name")).toBe("");
@@ -28,10 +28,10 @@ describe("<FriendForm />", () => {
 
   test("should pass the name in the onSubmit callback", () => {
     const dispatchSpy = jest.fn();
-    const wrapper = shallow(<FriendForm dispatch={dispatchSpy} />);
+    const wrapper = shallow(<FriendForm dispatchAddFriend={dispatchSpy} />);
     wrapper.find('input[type="text"]').simulate("change", CHANGE_EVENT("John"));
     wrapper.find("form").simulate("submit", EMPTY_EVENT);
 
-    expect(dispatchSpy).toHaveBeenCalledWith(expect.objectContaining({ name: "John", type: "ADD_FRIEND" }));
+    expect(dispatchSpy).toHaveBeenCalledWith("John");
   });
 });

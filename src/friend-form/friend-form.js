@@ -2,6 +2,10 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { addFriend } from "./actions";
 
+const mapDispatchToProps = (dispatch) => ({
+  dispatchAddFriend: (name) => dispatch(addFriend({ name })),
+});
+
 export class FriendForm extends Component {
   constructor(props) {
     super(props);
@@ -16,10 +20,8 @@ export class FriendForm extends Component {
   }
 
   handleSubmit(event) {
-    const { dispatch } = this.props;
-    const { name } = this.state;
     event.preventDefault();
-    dispatch(addFriend({ name }));
+    this.props.dispatchAddFriend(this.state.name)
     this.setState({ name: "" });
   }
 
@@ -45,4 +47,4 @@ export class FriendForm extends Component {
   }
 }
 
-export default connect(state => state)(FriendForm);
+export default connect(null, mapDispatchToProps)(FriendForm);
