@@ -1,8 +1,8 @@
 import { combineReducers } from "redux";
 
-import { ADD_EXPENSE } from "../expense-form/actions";
-import { ADD_FRIEND } from "../friend-form/actions";
-import { DELETE_FRIEND } from "../friends/actions";
+import { ADD_EXPENSE } from "../ExpenseForm/actions";
+import { ADD_FRIEND } from "../FriendForm/actions";
+import { DELETE_FRIEND } from "../Friends/actions";
 
 const friends = (state = [], action) => {
   if (action.type === ADD_FRIEND) {
@@ -16,7 +16,7 @@ const friends = (state = [], action) => {
 
 const removeFriendFromParticipants = (expense, id) => {
   return Object.assign({}, expense, { participants: expense.participants.filter(p => p.id != id) });
-}
+};
 
 const expenses = (state = [], action) => {
   if (action.type === ADD_EXPENSE) {
@@ -24,7 +24,7 @@ const expenses = (state = [], action) => {
   } else if (action.type === DELETE_FRIEND) {
     return state
       .filter(expense => expense.paidBy.id != action.id)
-      .map(expense => removeFriendFromParticipants(expense, action.id))
+      .map(expense => removeFriendFromParticipants(expense, action.id));
   } else {
     return state;
   }

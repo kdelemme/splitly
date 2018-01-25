@@ -1,7 +1,6 @@
 import reducers from "./";
-import { deleteFriend } from "../friends/actions";
-import { addFriend } from "../friend-form/actions"
-
+import { deleteFriend } from "../Friends/actions";
+import { addFriend } from "../FriendForm/actions";
 
 describe("reducers", () => {
   it("shoud add friends", () => {
@@ -18,7 +17,7 @@ describe("reducers", () => {
   });
 
   it("shoud delete expenses paid by deleted friend", () => {
-    const friends = [aFriend(1, "Bob"), aFriend(2, "Paul")]
+    const friends = [aFriend(1, "Bob"), aFriend(2, "Paul")];
     const state = {
       friends,
       expenses: [anExpense(1120, "rent", aFriend(1, "Bob"), friends)]
@@ -29,7 +28,7 @@ describe("reducers", () => {
   });
 
   it("shoud delete friends from participants list in expenses", () => {
-    const friends = [aFriend(1, "Bob"), aFriend(2, "Paul")]
+    const friends = [aFriend(1, "Bob"), aFriend(2, "Paul")];
     const state = {
       friends,
       expenses: [anExpense(1120, "rent", aFriend(1, "Bob"), friends)]
