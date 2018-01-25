@@ -52,7 +52,12 @@ export class ExpenseForm extends Component {
             <Amount amount={amount} onChange={this.onAmountChange} />
           </div>
           <FriendsSelection friends={friends} multiple={false} label="Paid By" onChange={this.onPaidByChange} />
-          <FriendsSelection friends={friends} multiple={true} label="Participants" onChange={this.onParticipantsChange} />
+          <FriendsSelection
+            friends={friends}
+            multiple={true}
+            label="Participants"
+            onChange={this.onParticipantsChange}
+          />
           <button type="submit" className="btn btn-primary">
             Submit
           </button>

@@ -1,9 +1,9 @@
 import React from "react";
 import { shallow } from "enzyme";
-import { FriendForm } from "./friend-form";
+import { FriendForm } from ".";
 
 describe("<FriendForm />", () => {
-  const EMPTY_FUNCTION = () => { };
+  const EMPTY_FUNCTION = () => {};
   const EMPTY_EVENT = { preventDefault: EMPTY_FUNCTION };
   const CHANGE_EVENT = value => ({ target: { value } });
 

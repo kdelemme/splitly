@@ -1,6 +1,6 @@
 import React from "react";
 import { shallow } from "enzyme";
-import { Friends } from "./friends";
+import { Friends } from ".";
 
 describe("<Friends />", () => {
   test("should render two <li> elements", () => {

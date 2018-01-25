@@ -2,10 +2,10 @@ import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 
-import Friends from "./friends/friends";
-import FriendForm from "./friend-form/friend-form";
-import ExpenseForm from "./expense-form/expense-form";
-import Expenses from "./expenses/expenses";
+import Friends from "./friends";
+import FriendForm from "./friend-form";
+import ExpenseForm from "./expense-form";
+import Expenses from "./expenses";
 
 import { store } from "./configureStore";
 
