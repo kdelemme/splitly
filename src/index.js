@@ -9,7 +9,7 @@ import Expenses from "./expenses/expenses";
 
 import { store } from "./configureStore";
 
-import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/css/bootstrap.css";
 
 class App extends Component {
   render() {

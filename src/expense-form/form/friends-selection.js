@@ -27,7 +27,7 @@ class FriendsSelection extends Component {
       <div className="form-row">
         <div className="form-group col-sm-6">
           <label>{label}</label>
-          <select className="form-control form-control-sm" multiple={multiple} onChange={this.onChange}>
+          <select className="form-control" multiple={multiple} onChange={this.onChange}>
             {friends.map(friend => (
               <option key={friend.id} value={friend.id}>
                 {friend.name}

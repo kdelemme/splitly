@@ -32,8 +32,8 @@ export class FriendForm extends Component {
       <div className="row">
         <h1 className="col-12">Add friend</h1>
         <form className="form-inline col-12" onSubmit={this.handleSubmit}>
-          <input className="form-control form-control-sm" type="text" value={name} onChange={this.handleChange} placeholder="Name" />
-          <button type="submit" className="btn btn-primary btn-sm ml-sm-2">Add</button>
+          <input className="form-control" type="text" value={name} onChange={this.handleChange} placeholder="Name" />
+          <button type="submit" className="btn btn-primary ml-2">Add</button>
         </form>
       </div>
     );

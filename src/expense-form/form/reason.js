@@ -16,7 +16,7 @@ class Reason extends Component {
     return (
       <div className="form-group col-sm-6">
         <label>Reason</label>
-        <input className="form-control form-control-sm" type="text" value={reason} onChange={this.onChange} />
+        <input className="form-control" type="text" value={reason} onChange={this.onChange} />
       </div>
     );
   }
