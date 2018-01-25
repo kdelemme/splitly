@@ -1,21 +1,15 @@
 import React, { Component } from "react";
 
 class FriendsSelection extends Component {
-  constructor(props) {
-    super(props);
-
-    this.onChange = this.onChange.bind(this);
-  }
-
-  onChange(event) {
-    const { multiple } = this.props;
+  onChange = event => {
+    const { multiple, onChange } = this.props;
     const selectedFriends = Array.from(event.target.selectedOptions).map(option => ({
       id: option.value,
       name: option.text
     }));
 
-    this.props.onChange(multiple ? selectedFriends : selectedFriends[0]);
-  }
+    onChange(multiple ? selectedFriends : selectedFriends[0]);
+  };
 
   render() {
     const { friends, label, multiple } = this.props;

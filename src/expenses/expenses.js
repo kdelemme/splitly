@@ -4,16 +4,11 @@ import { connect } from "react-redux";
 import Expense from "./expense";
 
 class Expenses extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { toggled: null };
+  state = { toggled: null };
 
-    this.toggle = this.toggle.bind(this);
-  }
-
-  toggle(id) {
-    this.setState((prevState) => ({ toggled: (prevState.toggled == id ? null : id) }));
-  }
+  toggle = id => {
+    this.setState(prevState => ({ toggled: prevState.toggled == id ? null : id }));
+  };
 
   render() {
     const { expenses } = this.props;
@@ -32,7 +27,7 @@ class Expenses extends Component {
             />
           ))}
         </ul>
-      </div >
+      </div>
     );
   }
 }
