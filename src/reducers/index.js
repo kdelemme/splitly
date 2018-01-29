@@ -15,7 +15,7 @@ const friends = (state = [], action) => {
 };
 
 const removeFriendFromParticipants = (expense, id) => {
-  return Object.assign({}, expense, { participants: expense.participants.filter(p => p.id != id) });
+  return Object.assign({}, expense, { participants: expense.participants.filter(p => p != id) });
 };
 
 const expenses = (state = [], action) => {
@@ -23,7 +23,7 @@ const expenses = (state = [], action) => {
     return [...state, action.payload];
   } else if (action.type === DELETE_FRIEND) {
     return state
-      .filter(expense => expense.paidBy.id != action.id)
+      .filter(expense => expense.payer.id != action.id)
       .map(expense => removeFriendFromParticipants(expense, action.id));
   } else {
     return state;

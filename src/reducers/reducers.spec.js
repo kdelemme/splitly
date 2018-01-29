@@ -31,12 +31,12 @@ describe("reducers", () => {
     const friends = [aFriend(1, "Bob"), aFriend(2, "Paul")];
     const state = {
       friends,
-      expenses: [anExpense(1120, "rent", aFriend(1, "Bob"), friends)]
+      expenses: [anExpense(1120, "rent", aFriend(1, "Bob").id, friends.map(f => f.id))]
     };
     const newState = reducers(state, deleteFriend(2));
     expect(newState.friends).toHaveLength(1);
     expect(newState.expenses).toHaveLength(1);
-    expect(newState.expenses).toMatchObject([{ participants: [{ name: "Bob" }] }]);
+    expect(newState.expenses).toMatchObject([{ participants: [1] }]);
   });
 });
 
@@ -44,6 +44,6 @@ function aFriend(id, name) {
   return { id, name };
 }
 
-function anExpense(amount, reason, paidBy, participants) {
-  return { amount, reason, paidBy, participants };
+function anExpense(amount, reason, payer, participants) {
+  return { amount, reason, payer, participants };
 }

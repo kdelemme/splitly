@@ -11,7 +11,7 @@ class Expenses extends Component {
   };
 
   render() {
-    const { expenses } = this.props;
+    const { expenses, friends } = this.props;
     const { toggled } = this.state;
 
     return (
@@ -22,6 +22,7 @@ class Expenses extends Component {
             <Expense
               key={expense.id}
               expense={expense}
+              friends={friends}
               toggled={toggled === expense.id}
               onToggle={() => this.toggle(expense.id)}
             />
@@ -32,4 +33,6 @@ class Expenses extends Component {
   }
 }
 
-export default connect(state => state)(Expenses);
+const mapStateToProps = state => ({ expenses: state.expenses, friends: state.friends });
+
+export default connect(mapStateToProps)(Expenses);
