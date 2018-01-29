@@ -1,5 +1,6 @@
 import Amount from "./amount";
 import Reason from "./reason";
-import FriendsSelection from "./friends-selection";
+import Payer from "./Payer";
+import Participants from "./Participants";
 
-export { Amount, Reason, FriendsSelection };
+export { Amount, Reason, Payer, Participants };

@@ -20,7 +20,7 @@ describe("reducers", () => {
     const friends = [aFriend(1, "Bob"), aFriend(2, "Paul")];
     const state = {
       friends,
-      expenses: [anExpense(1120, "rent", aFriend(1, "Bob"), friends)]
+      expenses: [anExpense(1120, "rent", aFriend(1, "Bob").id, friends.map(f => f.id))]
     };
     const newState = reducers(state, deleteFriend(1));
     expect(newState.friends).toHaveLength(1);

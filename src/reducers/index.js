@@ -23,7 +23,7 @@ const expenses = (state = [], action) => {
     return [...state, action.payload];
   } else if (action.type === DELETE_FRIEND) {
     return state
-      .filter(expense => expense.payer.id != action.id)
+      .filter(expense => expense.payer != action.id)
       .map(expense => removeFriendFromParticipants(expense, action.id));
   } else {
     return state;
