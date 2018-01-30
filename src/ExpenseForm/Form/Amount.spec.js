@@ -1,6 +1,6 @@
 import React from "react";
 import { shallow } from "enzyme";
-import Amount from "./amount";
+import Amount from "./Amount";
 
 describe("<Amount />", () => {
   test("should propagate the new amount", () => {

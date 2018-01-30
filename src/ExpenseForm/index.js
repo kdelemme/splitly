@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
-import { Amount, Reason, Payer, Participants } from "./form";
+import { Amount, Reason, Payer, Participants } from "./Form";
 import { addExpense } from "./actions";
 
 export class ExpenseForm extends Component {

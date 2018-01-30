@@ -1,6 +1,6 @@
 import React from "react";
 import { shallow } from "enzyme";
-import Reason from "./reason";
+import Reason from "./Reason";
 
 describe("<Reason />", () => {
   test("should propagate the new reason", () => {

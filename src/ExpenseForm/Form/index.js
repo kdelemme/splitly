@@ -1,5 +1,5 @@
-import Amount from "./amount";
-import Reason from "./reason";
+import Amount from "./Amount";
+import Reason from "./Reason";
 import Payer from "./Payer";
 import Participants from "./Participants";
 
