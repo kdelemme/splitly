@@ -8,6 +8,10 @@ export default class Payer extends Component {
   render() {
     const { payer, friends } = this.props;
 
+    if (friends.length === 0) {
+      return null;
+    }
+
     return (
       <div className="form-group col-sm-6">
         <legend className="col-form-label pt-0">Payer</legend>

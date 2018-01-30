@@ -14,6 +14,10 @@ export default class Participants extends Component {
   render() {
     const { friends, participants } = this.props;
 
+    if (friends.length === 0) {
+      return null;
+    }
+
     return (
       <div className="form-group col-sm-6">
         <legend className="col-form-label pt-0">Participants</legend>
