@@ -7,20 +7,8 @@ import { addExpense } from "./actions";
 export class ExpenseForm extends Component {
   state = { reason: "", amount: "", payer: null, participants: [] };
 
-  onPayerChange = payer => {
-    this.setState({ payer });
-  };
-
-  onParticipantsChange = participants => {
-    this.setState({ participants });
-  };
-
-  onReasonChange = reason => {
-    this.setState({ reason });
-  };
-
-  onAmountChange = amount => {
-    this.setState({ amount });
+  onChange = name => value => {
+    this.setState({ [name]: value });
   };
 
   onSubmit = event => {
@@ -42,12 +30,12 @@ export class ExpenseForm extends Component {
         <h1 className="col-12">Add expense</h1>
         <form className="form col-12" onSubmit={this.onSubmit}>
           <div className="form-row">
-            <Reason reason={reason} onChange={this.onReasonChange} />
-            <Amount amount={amount} onChange={this.onAmountChange} />
+            <Reason reason={reason} onChange={this.onChange("reason")} />
+            <Amount amount={amount} onChange={this.onChange("amount")} />
           </div>
           <div className="form-row">
-            <Payer payer={payer} friends={friends} onChange={this.onPayerChange} />
-            <Participants participants={participants} friends={friends} onChange={this.onParticipantsChange} />
+            <Payer payer={payer} friends={friends} onChange={this.onChange("payer")} />
+            <Participants participants={participants} friends={friends} onChange={this.onChange("participants")} />
           </div>
           <button type="submit" className="btn btn-primary">
             Submit
