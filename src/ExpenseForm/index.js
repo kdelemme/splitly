@@ -17,6 +17,14 @@ export class ExpenseForm extends Component {
     this.resetState();
   };
 
+  isValid = () => {
+    const { amount, reason, payer, participants } = this.state;
+    if (amount > 0 && reason.length > 0 && payer && participants.length > 0) {
+      return true;
+    }
+    return false;
+  };
+
   resetState = () => {
     this.setState({ reason: "", amount: "", payer: null, participants: [] });
   };
@@ -24,6 +32,7 @@ export class ExpenseForm extends Component {
   render() {
     const { friends } = this.props;
     const { amount, reason, payer, participants } = this.state;
+    const isValid = this.isValid();
 
     return (
       <div className="row">
@@ -37,7 +46,7 @@ export class ExpenseForm extends Component {
             <Payer payer={payer} friends={friends} onChange={this.onChange("payer")} />
             <Participants participants={participants} friends={friends} onChange={this.onChange("participants")} />
           </div>
-          <button type="submit" className="btn btn-primary">
+          <button type="submit" className="btn btn-primary" disabled={!isValid}>
             Submit
           </button>
         </form>

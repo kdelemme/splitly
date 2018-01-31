@@ -12,4 +12,13 @@ describe("<Payer />", () => {
     const wrapper = shallow(<Payer friends={[{ id: 1, name: "Alice" }, { id: 2, name: "John" }]} />);
     expect(wrapper.find("input").length).toBe(2);
   });
+
+  it("should propagate the payer id on selection", () => {
+    const onChangeSpy = jest.fn();
+    const wrapper = shallow(<Payer friends={[{ id: 1, name: "Alice" }]} payer={null} onChange={onChangeSpy} />);
+
+    wrapper.find("input").simulate("change", { target: { value: 1 } });
+
+    expect(onChangeSpy).toHaveBeenCalledWith(1);
+  });
 });
