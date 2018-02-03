@@ -38,15 +38,13 @@ export class ExpenseForm extends Component {
       <div className="row">
         <h1 className="col-12">Add expense</h1>
         <form className="form col-12" onSubmit={this.onSubmit}>
-          <div className="form-row">
-            <Reason reason={reason} onChange={this.onChange("reason")} />
-            <Amount amount={amount} onChange={this.onChange("amount")} />
-          </div>
-          <div className="form-row">
-            <Payer payer={payer} friends={friends} onChange={this.onChange("payer")} />
-            <Participants participants={participants} friends={friends} onChange={this.onChange("participants")} />
-          </div>
-          <button type="submit" className="btn btn-primary" disabled={!isValid}>
+          <Reason reason={reason} onChange={this.onChange("reason")} />
+          <Amount amount={amount} onChange={this.onChange("amount")} />
+
+          <Payer payer={payer} friends={friends} onChange={this.onChange("payer")} />
+          <Participants participants={participants} friends={friends} onChange={this.onChange("participants")} />
+
+          <button type="submit" className="btn btn-primary ml-3" disabled={!isValid}>
             Submit
           </button>
         </form>

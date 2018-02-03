@@ -15,18 +15,26 @@ import "bootstrap/dist/css/bootstrap.css";
 
 const FriendsContainer = () => {
   return (
-    <div className="col-12">
-      <FriendForm />
-      <Friends />
+    <div className="row pt-5">
+      <div className="col-12 col-md-4">
+        <FriendForm />
+      </div>
+      <div className="col-12 col-md-6">
+        <Friends />
+      </div>
     </div>
   );
 };
 
 const ExpensesContainer = () => {
   return (
-    <div className="col-12">
-      <ExpenseForm />
-      <Expenses />
+    <div className="row pt-5">
+      <div className="col-12 col-md-4">
+        <ExpenseForm />
+      </div>
+      <div className="col-12 col-md-6">
+        <Expenses />
+      </div>
     </div>
   );
 };
@@ -37,10 +45,8 @@ class App extends Component {
       <div>
         <Header />
         <main className="container mt-5">
-          <div className="row pt-5">
-            <Route path="/friends" component={FriendsContainer} />
-            <Route path="/expenses" component={ExpensesContainer} />
-          </div>
+          <Route path="/friends" component={FriendsContainer} />
+          <Route path="/expenses" component={ExpensesContainer} />
         </main>
       </div>
     );

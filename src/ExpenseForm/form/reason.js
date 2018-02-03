@@ -8,7 +8,7 @@ class Reason extends Component {
   render() {
     const { reason } = this.props;
     return (
-      <div className="form-group col-sm-6">
+      <div className="form-group col-10">
         <label>Reason</label>
         <input className="form-control" type="text" value={reason} onChange={this.onChange} />
       </div>

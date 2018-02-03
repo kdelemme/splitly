@@ -13,7 +13,7 @@ export default class Payer extends Component {
     }
 
     return (
-      <div className="form-group col-sm-6">
+      <div className="form-group col-12">
         <legend className="col-form-label pt-0">Payer</legend>
         {friends.map(({ name, id }) => {
           return (
