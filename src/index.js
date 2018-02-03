@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
+import Header from "./Header";
 import Friends from "./Friends";
 import FriendForm from "./FriendForm";
 import ExpenseForm from "./ExpenseForm";
@@ -11,20 +13,35 @@ import { store } from "./configureStore";
 
 import "bootstrap/dist/css/bootstrap.css";
 
+const FriendsContainer = () => {
+  return (
+    <div className="col-12">
+      <FriendForm />
+      <Friends />
+    </div>
+  );
+};
+
+const ExpensesContainer = () => {
+  return (
+    <div className="col-12">
+      <ExpenseForm />
+      <Expenses />
+    </div>
+  );
+};
+
 class App extends Component {
   render() {
     return (
-      <div className="container">
-        <div className="row">
-          <div className="col-12 col-md-4">
-            <FriendForm />
-            <Friends />
+      <div>
+        <Header />
+        <main className="container mt-5">
+          <div className="row pt-5">
+            <Route path="/friends" component={FriendsContainer} />
+            <Route path="/expenses" component={ExpensesContainer} />
           </div>
-          <div className="col-12 col-md-8">
-            <ExpenseForm />
-            <Expenses />
-          </div>
-        </div>
+        </main>
       </div>
     );
   }
@@ -32,7 +49,9 @@ class App extends Component {
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <Router>
+      <App />
+    </Router>
   </Provider>,
   document.getElementById("root")
 );
