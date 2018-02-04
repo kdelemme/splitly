@@ -29,25 +29,38 @@ export class ExpenseForm extends Component {
     this.setState({ reason: "", amount: "", payer: null, participants: [] });
   };
 
+  hasFriends = () => {
+    return this.props.friends && this.props.friends.length > 0;
+  };
+
+  renderForm = () => {
+    const { amount, reason, payer, participants } = this.state;
+    const { friends } = this.props;
+    if (!this.hasFriends()) {
+      return <p className="col-12 lead">Add some friends...</p>;
+    }
+
+    return (
+      <form className="form" onSubmit={this.onSubmit}>
+        <Reason reason={reason} onChange={this.onChange("reason")} />
+        <Amount amount={amount} onChange={this.onChange("amount")} />
+
+        <Payer payer={payer} friends={friends} onChange={this.onChange("payer")} />
+        <Participants participants={participants} friends={friends} onChange={this.onChange("participants")} />
+
+        <button type="submit" className="btn btn-primary ml-3" disabled={!this.isValid()}>
+          Submit
+        </button>
+      </form>
+    );
+  };
+
   render() {
     const { friends } = this.props;
-    const { amount, reason, payer, participants } = this.state;
-    const isValid = this.isValid();
-
     return (
       <div className="row">
         <h1 className="col-12">Add expense</h1>
-        <form className="form col-12" onSubmit={this.onSubmit}>
-          <Reason reason={reason} onChange={this.onChange("reason")} />
-          <Amount amount={amount} onChange={this.onChange("amount")} />
-
-          <Payer payer={payer} friends={friends} onChange={this.onChange("payer")} />
-          <Participants participants={participants} friends={friends} onChange={this.onChange("participants")} />
-
-          <button type="submit" className="btn btn-primary ml-3" disabled={!isValid}>
-            Submit
-          </button>
-        </form>
+        {this.renderForm()}
       </div>
     );
   }
