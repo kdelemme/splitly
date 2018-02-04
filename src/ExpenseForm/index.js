@@ -19,7 +19,7 @@ export class ExpenseForm extends Component {
 
   isValid = () => {
     const { amount, reason, payer, participants } = this.state;
-    if (amount > 0 && reason.length > 0 && payer && participants.length > 0) {
+    if (Number(amount) != NaN && amount > 0 && reason.length > 0 && payer && participants.length > 0) {
       return true;
     }
     return false;
