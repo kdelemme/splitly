@@ -8,6 +8,7 @@ import Friends from "./Friends";
 import FriendForm from "./FriendForm";
 import ExpenseForm from "./ExpenseForm";
 import Expenses from "./Expenses";
+import Settings from "./Settings";
 
 import { store } from "./configureStore";
 
@@ -39,6 +40,17 @@ const ExpensesContainer = () => {
   );
 };
 
+const SettingsContainer = () => {
+  const currencies = ["USD", "EUR", "AUD", "GBP"];
+  return (
+    <div className="row pt-5">
+      <div className="col-12 col-md-4">
+        <Settings currencies={currencies} />
+      </div>
+    </div>
+  );
+};
+
 class App extends Component {
   render() {
     return (
@@ -47,6 +59,7 @@ class App extends Component {
         <main className="container mt-5">
           <Route path="/friends" component={FriendsContainer} />
           <Route path="/expenses" component={ExpensesContainer} />
+          <Route path="/settings" component={SettingsContainer} />
         </main>
       </div>
     );

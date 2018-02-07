@@ -27,12 +27,13 @@ class Expense extends Component {
   }
 
   render() {
-    const { expense, friends, toggled, onToggle } = this.props;
+    const { expense, friends, currency, toggled, onToggle } = this.props;
 
     return (
       <li key={expense.id}>
         <p className="lead mb-0" onClick={onToggle}>
-          {expense.amount} for {expense.reason}
+          {expense.amount}
+          {currency} for {expense.reason}
         </p>
         {this.renderDetails(toggled, friends, expense)}
       </li>

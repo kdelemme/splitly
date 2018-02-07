@@ -3,6 +3,7 @@ import { combineReducers } from "redux";
 import { ADD_EXPENSE } from "../ExpenseForm/actions";
 import { ADD_FRIEND } from "../FriendForm/actions";
 import { DELETE_FRIEND } from "../Friends/actions";
+import { SAVE_SETTINGS } from "../Settings/actions";
 
 const friends = (state = [], action) => {
   if (action.type === ADD_FRIEND) {
@@ -30,9 +31,18 @@ const expenses = (state = [], action) => {
   }
 };
 
+const settings = (state = {}, action) => {
+  if (action.type === SAVE_SETTINGS) {
+    return action.settings;
+  } else {
+    return state;
+  }
+};
+
 const reducers = combineReducers({
   friends,
-  expenses
+  expenses,
+  settings
 });
 
 export default reducers;

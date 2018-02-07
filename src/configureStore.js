@@ -14,7 +14,10 @@ const preloadedState = {
       payer: "281847ea-fbe3-49d0-be47-f42a4ddfa433",
       participants: ["281847ea-fbe3-49d0-be47-f42a4ddfa433", "52cd275d-c3be-4cab-b0e0-564f52604e52"]
     }
-  ]
+  ],
+  settings: {
+    currency: "USD"
+  }
 };
 
 export const store = createStore(reducers, preloadedState);

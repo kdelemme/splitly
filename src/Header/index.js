@@ -30,6 +30,11 @@ const Header = () => {
               Friends
             </NavLink>
           </li>
+          <li className="nav-item">
+            <NavLink className="nav-link" activeClassName="active" to="/settings">
+              Settings
+            </NavLink>
+          </li>
         </ul>
       </div>
     </nav>
