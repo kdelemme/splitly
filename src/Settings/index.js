@@ -11,7 +11,7 @@ export class Settings extends Component {
   state = { currency: this.props.settings.currency };
 
   handleChange = event => {
-    this.setState({ currency: event.target.value });
+    this.setState({ currency: event.target.selectedOptions[0].value });
   };
 
   handleSubmit = event => {
@@ -21,13 +21,23 @@ export class Settings extends Component {
 
   render() {
     const { currency } = this.state;
+    const { currencies } = this.props;
+
     return (
       <div className="row">
         <h1 className="col-12">Settings</h1>
         <form className="form" onSubmit={this.handleSubmit}>
           <div className="form-group col-10">
-            <label>Currency</label>
-            <input className="form-control" type="text" value={currency} onChange={this.handleChange} placeholder="£" />
+            <label className="my-1 mr-2" htmlFor="currency">
+              Currency
+            </label>
+            <select className="custom-select" id="currency" onChange={this.handleChange} value={currency}>
+              {currencies.map(c => (
+                <option key={c} value={c}>
+                  {c}
+                </option>
+              ))}
+            </select>
           </div>
 
           <button type="submit" className="btn btn-primary ml-3">

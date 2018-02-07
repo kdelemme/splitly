@@ -16,7 +16,7 @@ const preloadedState = {
     }
   ],
   settings: {
-    currency: "$"
+    currency: "USD"
   }
 };
 
