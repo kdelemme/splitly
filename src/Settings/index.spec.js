@@ -3,16 +3,16 @@ import { shallow } from "enzyme";
 import { Settings } from ".";
 
 describe("<Settings />", () => {
-  describe("Currency", () => {
-    const AVAILABLE_CURRENCIES = ["USD", "EUR", "GBP", "AUD"];
-    const SETTINGS = { currency: "EUR" };
-    const aChangeEvent = currency => ({
-      target: {
-        selectedOptions: [{ value: currency }]
-      }
-    });
-    const aSubmitEvent = () => ({ preventDefault: jest.fn() });
+  const AVAILABLE_CURRENCIES = ["USD", "EUR", "GBP", "AUD"];
+  const SETTINGS = { currency: "EUR" };
+  const aChangeEvent = currency => ({
+    target: {
+      selectedOptions: [{ value: currency }]
+    }
+  });
+  const aSubmitEvent = () => ({ preventDefault: jest.fn() });
 
+  describe("Currency", () => {
     it("should list available currencies", () => {
       const wrapper = shallow(<Settings settings={SETTINGS} currencies={AVAILABLE_CURRENCIES} />);
       expect(wrapper.find("select#currency > option").length).toBe(4);
@@ -29,5 +29,18 @@ describe("<Settings />", () => {
 
       expect(spy).toHaveBeenCalledWith({ currency: "USD" });
     });
+  });
+
+  it("should initiate form with disabled submit button", () => {
+    const wrapper = shallow(<Settings settings={SETTINGS} currencies={AVAILABLE_CURRENCIES} />);
+    expect(wrapper.find("button[disabled=true]").exists()).toBe(true);
+  });
+
+  it("should enable submit button when form has changed", () => {
+    const wrapper = shallow(<Settings settings={SETTINGS} currencies={AVAILABLE_CURRENCIES} />);
+
+    wrapper.find("select#currency").simulate("change", aChangeEvent("USD"));
+
+    expect(wrapper.find("button[disabled=false]").exists()).toBe(true);
   });
 });

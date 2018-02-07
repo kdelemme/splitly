@@ -8,19 +8,24 @@ const mapDispatchToProps = dispatch => ({
 });
 
 export class Settings extends Component {
-  state = { currency: this.props.settings.currency };
+  state = { currency: this.props.settings.currency, pristine: true };
 
   handleChange = event => {
-    this.setState({ currency: event.target.selectedOptions[0].value });
+    this.setState({ currency: event.target.selectedOptions[0].value, pristine: false });
   };
 
   handleSubmit = event => {
     event.preventDefault();
-    this.props.dispatchSaveSettings(this.state);
+    this.props.dispatchSaveSettings({ currency: this.state.currency });
+    this.resetState();
+  };
+
+  resetState = () => {
+    this.setState({ pristine: true });
   };
 
   render() {
-    const { currency } = this.state;
+    const { currency, pristine } = this.state;
     const { currencies } = this.props;
 
     return (
@@ -40,7 +45,7 @@ export class Settings extends Component {
             </select>
           </div>
 
-          <button type="submit" className="btn btn-primary ml-3">
+          <button type="submit" className="btn btn-primary ml-3" disabled={pristine}>
             Save
           </button>
         </form>
