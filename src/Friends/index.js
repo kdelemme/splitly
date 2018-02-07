@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Friend } from "./friend";
+import { Friend } from "./Friend";
 import { deleteFriend } from "./actions";
 
 const mapStateToProps = state => ({ friends: state.friends });
