@@ -4,52 +4,11 @@ import { Provider } from "react-redux";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import Header from "./Header";
-import Friends from "./Friends";
-import FriendForm from "./FriendForm";
-import ExpenseForm from "./ExpenseForm";
-import Expenses from "./Expenses";
-import Settings from "./Settings";
+import { FriendsContainer, ExpensesContainer, SettingsContainer } from "./Containers";
 
 import { store } from "./configureStore";
 
 import "bootstrap/dist/css/bootstrap.css";
-
-const FriendsContainer = () => {
-  return (
-    <div className="row pt-5">
-      <div className="col-12 col-md-4">
-        <FriendForm />
-      </div>
-      <div className="col-12 col-md-6">
-        <Friends />
-      </div>
-    </div>
-  );
-};
-
-const ExpensesContainer = () => {
-  return (
-    <div className="row pt-5">
-      <div className="col-12 col-md-4">
-        <ExpenseForm />
-      </div>
-      <div className="col-12 col-md-6">
-        <Expenses />
-      </div>
-    </div>
-  );
-};
-
-const SettingsContainer = () => {
-  const currencies = ["USD", "EUR", "AUD", "GBP"];
-  return (
-    <div className="row pt-5">
-      <div className="col-12 col-md-4">
-        <Settings currencies={currencies} />
-      </div>
-    </div>
-  );
-};
 
 class App extends Component {
   render() {
