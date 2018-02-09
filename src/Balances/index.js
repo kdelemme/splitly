@@ -8,7 +8,13 @@ const mapStateToProps = state => ({
 
 export class Balances extends Component {
   render() {
-    return <h1>Balances</h1>;
+    return (
+      <div className="row pt-5">
+        <div className="col-12">
+          <h1>Balances</h1>
+        </div>
+      </div>
+    );
   }
 }
 
