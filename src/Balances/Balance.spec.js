@@ -27,7 +27,10 @@ describe("<Balance />", () => {
         payer: 300,
         participants: [200]
       }
-    ]
+    ],
+    settings: {
+      currency: { name: "USD", symbol: "$" }
+    }
   };
 
   it("should display positive balances owed by every friends", () => {
@@ -35,7 +38,7 @@ describe("<Balance />", () => {
     const wrapper = shallow(<Balance {...props} friend={friend} />);
 
     expect(wrapper.find("li").length).toEqual(1);
-    expect(wrapper.find("li").text()).toEqual("Alice is owed 50.5 by Bob");
+    expect(wrapper.find("li").text()).toEqual("Alice is owed 50.5$ by Bob");
   });
 
   it("should compute balances owed by each friend from all expenses", () => {
@@ -43,7 +46,7 @@ describe("<Balance />", () => {
     const wrapper = shallow(<Balance {...props} friend={friend} />);
 
     expect(wrapper.find("li").length).toEqual(2);
-    expect(wrapper.find("li[data-attr-id=100]").text()).toEqual("John is owed 20 by Alice");
-    expect(wrapper.find("li[data-attr-id=200]").text()).toEqual("John is owed 30 by Bob");
+    expect(wrapper.find("li[data-attr-id=100]").text()).toEqual("John is owed 20$ by Alice");
+    expect(wrapper.find("li[data-attr-id=200]").text()).toEqual("John is owed 30$ by Bob");
   });
 });

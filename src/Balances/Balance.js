@@ -27,17 +27,18 @@ class Balance extends Component {
 
   renderOwedBalances = () => {
     const balances = this.computeOwedBalances();
-    const { friend } = this.props;
+    const { friend, settings } = this.props;
 
     return balances.filter(balance => balance.id !== friend.id && balance.owe > 0).map(balance => (
       <li key={balance.id} data-attr-id={balance.id}>
-        {friend.name} is owed {balance.owe} by {balance.name}
+        {friend.name} is owed {balance.owe}
+        {settings.currency.symbol} by {balance.name}
       </li>
     ));
   };
 
   render() {
-    const { friend, friends, expenses } = this.props;
+    const { friend } = this.props;
     return (
       <div>
         <p className="lead">{friend.name}'s Balance</p>
