@@ -10,7 +10,7 @@ export class Balances extends Component {
       <div className="row pt-5">
         <div className="col-12">
           <h1>Balances</h1>
-          {friends.map(friend => <Balance friend={friend} {...this.props} />)}
+          {friends.map(friend => <Balance key={friend.id} friend={friend} {...this.props} />)}
         </div>
       </div>
     );
