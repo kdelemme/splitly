@@ -1,28 +1,20 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-
-const mapStateToProps = state => ({
-  expenses: state.expenses,
-  friends: state.friends
-});
+import Balance from "./Balance";
 
 export class Balances extends Component {
   render() {
-    const { expenses } = this.props;
+    const { expenses, friends } = this.props;
 
     return (
       <div className="row pt-5">
         <div className="col-12">
           <h1>Balances</h1>
-
-          <ul>
-            <li>Alice is own 50 by Bob</li>
-            <li>Bob owns 50 to alice</li>
-          </ul>
+          {friends.map(friend => <Balance friend={friend} {...this.props} />)}
         </div>
       </div>
     );
   }
 }
 
-export default connect(mapStateToProps)(Balances);
+export default connect(state => state)(Balances);
