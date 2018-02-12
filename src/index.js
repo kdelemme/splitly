@@ -5,8 +5,9 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import Header from "./Header";
 import { FriendsContainer, ExpensesContainer, SettingsContainer } from "./Containers";
-
 import { store } from "./configureStore";
+
+import Balances from "./Balances";
 
 import "bootstrap/dist/css/bootstrap.css";
 
@@ -18,6 +19,7 @@ class App extends Component {
         <main className="container mt-5">
           <Route path="/friends" component={FriendsContainer} />
           <Route path="/expenses" component={ExpensesContainer} />
+          <Route path="/balances" component={Balances} />
           <Route path="/settings" component={SettingsContainer} />
         </main>
       </div>
