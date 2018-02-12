@@ -1,5 +1,10 @@
 import React, { Component } from "react";
 
+const round = (number, precision) => {
+  var factor = Math.pow(10, precision);
+  return Math.round(number * factor) / factor;
+};
+
 class Balance extends Component {
   computeOwedBalances = () => {
     const { friend, expenses, friends } = this.props;
@@ -13,7 +18,7 @@ class Balance extends Component {
     const paidExpenses = expenses.filter(expense => expense.payer === friend.id);
     paidExpenses.forEach(expense => {
       expense.participants.forEach(participant => {
-        balances.find(b => b.id === participant).owe += Math.round(expense.amount / expense.participants.length, 2);
+        balances.find(b => b.id === participant).owe += round(expense.amount / expense.participants.length, 2);
       });
     });
 
@@ -24,8 +29,8 @@ class Balance extends Component {
     const balances = this.computeOwedBalances();
     const { friend } = this.props;
 
-    return balances.filter(balance => balance.id !== friend.id).map(balance => (
-      <li key={balance.id}>
+    return balances.filter(balance => balance.id !== friend.id && balance.owe > 0).map(balance => (
+      <li key={balance.id} data-attr-id={balance.id}>
         {friend.name} is owed {balance.owe} by {balance.name}
       </li>
     ));
