@@ -3,8 +3,13 @@ import { shallow } from "enzyme";
 import { Settings } from ".";
 
 describe("<Settings />", () => {
-  const AVAILABLE_CURRENCIES = ["USD", "EUR", "GBP", "AUD"];
-  const SETTINGS = { currency: "EUR" };
+  const AVAILABLE_CURRENCIES = [
+    { name: "USD", symbol: "$" },
+    { name: "EUR", symbol: "€" },
+    { name: "AUD", symbol: "A$" },
+    { name: "GBP", symbol: "£" }
+  ];
+  const SETTINGS = { currency: { name: "EUR", symbol: "€" } };
   const aChangeEvent = currency => ({
     target: {
       selectedOptions: [{ value: currency }]
@@ -27,7 +32,7 @@ describe("<Settings />", () => {
       wrapper.find("select#currency").simulate("change", aChangeEvent("USD"));
       wrapper.find("form").simulate("submit", aSubmitEvent());
 
-      expect(spy).toHaveBeenCalledWith({ currency: "USD" });
+      expect(spy).toHaveBeenCalledWith({ currency: { name: "USD", symbol: "$" } });
     });
   });
 
