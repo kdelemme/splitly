@@ -4,7 +4,7 @@ import Balance from "./Balance";
 
 export class Balances extends Component {
   render() {
-    const { expenses, friends } = this.props;
+    const { expenses, friends, settings } = this.props;
 
     return (
       <div className="row pt-5">

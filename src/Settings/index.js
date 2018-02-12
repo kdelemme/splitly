@@ -11,7 +11,8 @@ export class Settings extends Component {
   state = { currency: this.props.settings.currency, pristine: true };
 
   handleChange = event => {
-    this.setState({ currency: event.target.selectedOptions[0].value, pristine: false });
+    const currency = this.props.currencies.find(c => c.name === event.target.selectedOptions[0].value);
+    this.setState({ currency, pristine: false });
   };
 
   handleSubmit = event => {
@@ -36,10 +37,10 @@ export class Settings extends Component {
             <label className="my-1 mr-2" htmlFor="currency">
               Currency
             </label>
-            <select className="custom-select" id="currency" onChange={this.handleChange} value={currency}>
+            <select className="custom-select" id="currency" onChange={this.handleChange} value={currency.name}>
               {currencies.map(c => (
-                <option key={c} value={c}>
-                  {c}
+                <option key={c.name} value={c.name}>
+                  {c.name}
                 </option>
               ))}
             </select>

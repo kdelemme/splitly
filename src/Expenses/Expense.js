@@ -28,7 +28,8 @@ class Expense extends Component {
     return (
       <li key={expense.id}>
         <p className="lead mb-0">
-          {expense.amount} {currency} for {expense.reason}
+          {expense.amount}
+          {currency.symbol} for {expense.reason}
         </p>
         {this.renderDetails(friends, expense)}
       </li>

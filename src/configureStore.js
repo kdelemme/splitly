@@ -23,7 +23,7 @@ const preloadedState = {
     }
   ],
   settings: {
-    currency: "USD"
+    currency: { name: "EUR", symbol: "€" }
   }
 };
 
