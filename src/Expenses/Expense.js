@@ -7,11 +7,7 @@ class Expense extends Component {
     return friend === undefined ? "" : friend.name;
   };
 
-  renderDetails(toggled, friends, expense) {
-    if (!toggled) {
-      return null;
-    }
-
+  renderDetails(friends, expense) {
     return (
       <div>
         <p className="small mb-0">Payer: {this.findNameById(expense.payer)}</p>
@@ -27,15 +23,14 @@ class Expense extends Component {
   }
 
   render() {
-    const { expense, friends, currency, toggled, onToggle } = this.props;
+    const { expense, friends, currency } = this.props;
 
     return (
       <li key={expense.id}>
-        <p className="lead mb-0" onClick={onToggle}>
-          {expense.amount}
-          {currency} for {expense.reason}
+        <p className="lead mb-0">
+          {expense.amount} {currency} for {expense.reason}
         </p>
-        {this.renderDetails(toggled, friends, expense)}
+        {this.renderDetails(friends, expense)}
       </li>
     );
   }
