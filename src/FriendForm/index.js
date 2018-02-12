@@ -28,7 +28,7 @@ export class FriendForm extends Component {
         <h1 className="col-12">Add friend</h1>
         <form className="form" onSubmit={this.handleSubmit}>
           <div className="form-group col-10">
-            <label>Amount</label>
+            <label>Name</label>
             <input className="form-control" type="text" value={name} onChange={this.handleChange} placeholder="Name" />
           </div>
 
