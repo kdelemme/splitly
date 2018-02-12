@@ -1,6 +1,7 @@
 import React from "react";
 import { shallow } from "enzyme";
 import { Balances } from ".";
+import Balance from "./Balance";
 
 describe("<Balances />", () => {
   const props = {
@@ -18,6 +19,6 @@ describe("<Balances />", () => {
 
   it("should compute balances for each friend", () => {
     const wrapper = shallow(<Balances {...props} />);
-    expect(wrapper.find("li").length).toBe(2);
+    expect(wrapper.find(Balance).length).toBe(2);
   });
 });
