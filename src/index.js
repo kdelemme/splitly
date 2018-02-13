@@ -4,9 +4,10 @@ import { Provider } from "react-redux";
 import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 
 import Header from "./Header";
-import { FriendsContainer, ExpensesContainer, SettingsContainer } from "./Containers";
+import { FriendsContainer, ExpensesContainer } from "./Containers";
 import { store } from "./configureStore";
 
+import Settings from "./Settings";
 import Balances from "./Balances";
 
 import "bootstrap/dist/css/bootstrap.css";
@@ -21,7 +22,7 @@ class App extends Component {
             <Route path="/friends" component={FriendsContainer} />
             <Route path="/expenses" component={ExpensesContainer} />
             <Route path="/balances" component={Balances} />
-            <Route path="/settings" component={SettingsContainer} />
+            <Route path="/settings" component={Settings} />
             <Redirect from="/" to="/expenses" />
           </Switch>
         </main>

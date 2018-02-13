@@ -9,9 +9,6 @@ import { ExpensesContainer } from "./ExpensesContainer";
 import Expenses from "../Expenses";
 import ExpenseForm from "../ExpenseForm";
 
-import { SettingsContainer } from "./SettingsContainer";
-import Settings from "../Settings";
-
 describe("<FriendsContainer />", () => {
   it("should render FriendForm and Friends", () => {
     const wrapper = shallow(<FriendsContainer />);
@@ -25,12 +22,5 @@ describe("<ExpensesContainer />", () => {
     const wrapper = shallow(<ExpensesContainer />);
     expect(wrapper.find(Expenses).exists()).toBe(true);
     expect(wrapper.find(ExpenseForm).exists()).toBe(true);
-  });
-});
-
-describe("<SettingsContaier />", () => {
-  it("should render Settings", () => {
-    const wrapper = shallow(<SettingsContainer />);
-    expect(wrapper.find(Settings).exists()).toBe(true);
   });
 });
