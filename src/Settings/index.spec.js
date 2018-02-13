@@ -3,13 +3,13 @@ import { shallow } from "enzyme";
 import { Settings } from ".";
 
 describe("<Settings />", () => {
-  const AVAILABLE_CURRENCIES = [
+  const availableCurrencies = [
     { name: "USD", symbol: "$" },
     { name: "EUR", symbol: "€" },
     { name: "AUD", symbol: "A$" },
     { name: "GBP", symbol: "£" }
   ];
-  const SETTINGS = { currency: { name: "EUR", symbol: "€" } };
+  const settings = { currency: { name: "EUR", symbol: "€" } };
   const aChangeEvent = currency => ({
     target: {
       selectedOptions: [{ value: currency }]
@@ -19,14 +19,14 @@ describe("<Settings />", () => {
 
   describe("Currency", () => {
     it("should list available currencies", () => {
-      const wrapper = shallow(<Settings settings={SETTINGS} currencies={AVAILABLE_CURRENCIES} />);
+      const wrapper = shallow(<Settings settings={settings} currencies={availableCurrencies} />);
       expect(wrapper.find("select#currency > option").length).toBe(4);
     });
 
     it("should dispatch a save action on submit", () => {
       const spy = jest.fn();
       const wrapper = shallow(
-        <Settings settings={SETTINGS} currencies={AVAILABLE_CURRENCIES} dispatchSaveSettings={spy} />
+        <Settings settings={settings} currencies={availableCurrencies} dispatchSaveSettings={spy} />
       );
 
       wrapper.find("select#currency").simulate("change", aChangeEvent("USD"));
@@ -37,12 +37,12 @@ describe("<Settings />", () => {
   });
 
   it("should initiate form with disabled submit button", () => {
-    const wrapper = shallow(<Settings settings={SETTINGS} currencies={AVAILABLE_CURRENCIES} />);
+    const wrapper = shallow(<Settings settings={settings} currencies={availableCurrencies} />);
     expect(wrapper.find("button[disabled=true]").exists()).toBe(true);
   });
 
   it("should enable submit button when form has changed", () => {
-    const wrapper = shallow(<Settings settings={SETTINGS} currencies={AVAILABLE_CURRENCIES} />);
+    const wrapper = shallow(<Settings settings={settings} currencies={availableCurrencies} />);
 
     wrapper.find("select#currency").simulate("change", aChangeEvent("USD"));
 

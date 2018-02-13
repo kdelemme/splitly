@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { ExceptionInfo } from "_debugger";
 
 class Expense extends Component {
   findNameById = id => {
