@@ -1,4 +1,4 @@
-import { v4 } from 'uuid';
+import { v4 } from "uuid";
 
 export const ADD_FRIEND = "ADD_FRIEND";
 export const addFriend = friend => ({
