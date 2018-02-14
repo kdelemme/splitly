@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-const Header = () => {
+const Header = ({ match }) => {
   return (
     <nav className="navbar navbar-expand-md navbar-dark fixed-top bg-dark mb-5">
       <a className="navbar-brand" href="#">
@@ -21,22 +21,22 @@ const Header = () => {
       <div className="collapse navbar-collapse" id="navigation">
         <ul className="navbar-nav mr-auto">
           <li className="nav-item">
-            <NavLink className="nav-link" activeClassName="active" to="/expenses">
+            <NavLink className="nav-link" activeClassName="active" to={`${match.url}/expenses`}>
               Expenses
             </NavLink>
           </li>
           <li className="nav-item">
-            <NavLink className="nav-link" activeClassName="active" to="/friends">
+            <NavLink className="nav-link" activeClassName="active" to={`${match.url}/friends`}>
               Friends
             </NavLink>
           </li>
           <li className="nav-item">
-            <NavLink className="nav-link" activeClassName="active" to="/balances">
+            <NavLink className="nav-link" activeClassName="active" to={`${match.url}/balances`}>
               Balances
             </NavLink>
           </li>
           <li className="nav-item">
-            <NavLink className="nav-link" activeClassName="active" to="/settings">
+            <NavLink className="nav-link" activeClassName="active" to={`${match.url}/settings`}>
               Settings
             </NavLink>
           </li>
