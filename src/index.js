@@ -35,12 +35,12 @@ class App extends Component {
 
 ReactDOM.render(
   <Provider store={store}>
-    <Router>
+    <BrowserRouter>
       <Switch>
-        <Route component={Welcome} />
         <Route path="/:id" component={App} />
+        <Route path="/" component={Welcome} />
       </Switch>
-    </Router>
+    </BrowserRouter>
   </Provider>,
   document.getElementById("root")
 );
