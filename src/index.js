@@ -9,6 +9,7 @@ import { store } from "./configureStore";
 
 import Settings from "./Settings";
 import Balances from "./Balances";
+import Welcome from "./Welcome";
 
 import "bootstrap/dist/css/bootstrap.css";
 
@@ -35,7 +36,10 @@ class App extends Component {
 ReactDOM.render(
   <Provider store={store}>
     <Router>
-      <Route path="/:id" component={App} />
+      <Switch>
+        <Route component={Welcome} />
+        <Route path="/:id" component={App} />
+      </Switch>
     </Router>
   </Provider>,
   document.getElementById("root")
