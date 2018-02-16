@@ -4,8 +4,6 @@ Split expenses between friends easily.
 
 ## Installation
 
-Install parceljs globally: `yarn global add parcel-bundler prettier`
-
 Install other dependencies: `yarn install`
 
 ## Development 
