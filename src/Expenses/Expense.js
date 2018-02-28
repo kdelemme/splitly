@@ -1,12 +1,14 @@
+// @flow
 import React, { Component } from "react";
+import type { UUID, FriendType, ExpenseType, CurrencyType } from "../Types";
 
-class Expense extends Component {
-  findNameById = id => {
+class Expense extends Component<{ expense: ExpenseType, friends: Array<FriendType>, currency: CurrencyType }> {
+  findNameById = (id: UUID) => {
     const friend = this.props.friends.find(f => f.id === id);
     return friend === undefined ? "" : friend.name;
   };
 
-  renderDetails(friends, expense) {
+  renderDetails(friends: Array<FriendType>, expense: ExpenseType) {
     return (
       <div>
         <p className="small mb-0">Payer: {this.findNameById(expense.payer)}</p>
