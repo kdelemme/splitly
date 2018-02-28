@@ -9,7 +9,7 @@
     "start": "parcel index.html",
     "test": "jest",
     "test:watch": "jest --watch",
-    "build": "parcel build src/index.js --detailed-report",
+    "build": "yarn run flow && parcel build src/index.js --detailed-report",
     "prettier:list": "prettier src/**/*.js --config .prettierrc -l",
     "prettier:write": "prettier src/**/*.js --config .prettierrc --write",
     "flow": "flow status"

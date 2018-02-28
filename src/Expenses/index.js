@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
-import Expense from "./expense";
+import Expense from "./Expense";
 
 class Expenses extends Component {
   render() {
