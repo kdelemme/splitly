@@ -10,7 +10,7 @@ import { store } from "./configureStore";
 import Settings from "./Settings";
 import Balances from "./Balances";
 
-// import "bootstrap/dist/css/bootstrap.css";
+import "bootstrap/dist/css/bootstrap.css";
 
 class App extends Component {
   render() {
