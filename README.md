@@ -1,6 +1,7 @@
 # Splitly
 
 Spliting expenses between friends made easy.
+[Demo](https://s3-eu-west-1.amazonaws.com/demo-kdelemme/splitly/index.html)
 
 ## Installation
 
