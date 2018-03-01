@@ -11,7 +11,7 @@ Install dependencies: `yarn install`
 
 ### Run locally
 
-Run `yarn run start` to start a live server on http://localhost:1234.
+Run `yarn run start` to start a live server on http://localhost:8080.
 
 ### Run tests
 
@@ -19,12 +19,12 @@ Run `yarn run test` to run all tests once, or `yarn run test:watch` to start tes
 
 ### Run prettier
 
-Run `yarn run prettier:list` to list files that don't follow prettier configuration or `yarn run prettier:write` to rewrite (careful!)
+Run `yarn run prettier` to list files that don't follow prettier configuration or `yarn run prettier:write` to rewrite (careful!)
 
 ### Run flow
 
-Run `yarn run flow`.
+Run `yarn run flow` for static type check.
 
 ## Build
 
-Run `yarn run build` to bundle the app.
+Run `yarn run build` to bundle the app for development mode or `yarn run build:production` for production.
