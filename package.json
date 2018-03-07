@@ -15,7 +15,9 @@
     "prettier": "yarn run prettier:list",
     "prettier:list": "prettier src/**/*.js --config .prettierrc -l",
     "prettier:write": "prettier src/**/*.js --config .prettierrc --write",
-    "flow": "flow status"
+    "flow": "flow status",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run"
   },
   "dependencies": {
     "bootstrap": "^4.0.0",
@@ -35,6 +37,7 @@
     "babel-preset-flow": "^6.23.0",
     "babel-preset-react": "^6.24.1",
     "css-loader": "^0.28.10",
+    "cypress": "^2.1.0",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "flow-bin": "^0.66.0",
