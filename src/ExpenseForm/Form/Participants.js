@@ -29,6 +29,7 @@ export default class Participants extends Component {
                 type="checkbox"
                 id={`participant${id}`}
                 value={id}
+                name="participant"
                 onChange={this.onChange}
                 checked={participants.indexOf(id) > -1}
               />

@@ -8,7 +8,7 @@ class Amount extends Component {
     return (
       <div className="form-group col-10">
         <label>Amount</label>
-        <input className="form-control" type="text" value={amount} onChange={this.onChange} />
+        <input className="form-control" type="text" value={amount} onChange={this.onChange} name="amount" />
       </div>
     );
   }

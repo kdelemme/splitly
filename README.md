@@ -17,6 +17,8 @@ Run `yarn run start` to start a live server on http://localhost:8080.
 
 Run `yarn run test` to run all tests once, or `yarn run test:watch` to start tests in watch mode.
 
+Run `yarn run cypress:open` to run all end to end tests with cypress.
+
 ### Run prettier
 
 Run `yarn run prettier` to list files that don't follow prettier configuration or `yarn run prettier:write` to rewrite (careful!)
