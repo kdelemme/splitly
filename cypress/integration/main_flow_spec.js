@@ -2,6 +2,8 @@ describe("Happy flow", () => {
   it("Add a friend and then an expense", () => {
     cy.visit("/");
 
+    cy.get(".btn-primary").click();
+
     cy
       .get("#navigation")
       .contains("Friends")
