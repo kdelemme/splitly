@@ -15,8 +15,35 @@ jobs:
           key: npm-cache-{{ checksum "package.json" }}
           paths:
             - ./node_modules
+  test:
+    requires:
+      - build
+    docker:
+      - image: circleci/node:6.10-browsers
+    working_directory: ~/splitly
+    steps:
       - run:
           name: Run tests
           command: npm run test
       - store_test_results:
           path: test-results.xml
+  e2e_test:
+    requires:
+      - build
+    docker:
+      - image: circleci/node:6.10-browsers
+    working_directory: ~/splitly
+    steps:
+      - run:
+          name: Run cypress e2e
+          command: npm run cypress:run
+      - store_test_results:
+          path: test-e2e-results.xml
+
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build
+      - test
+      - e2e_test
