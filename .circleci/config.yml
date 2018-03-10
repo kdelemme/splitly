@@ -1,7 +1,7 @@
 version: 2
 jobs:
-  build:
-    working_directory: ~/splitly
+  setup:
+    working_directory: /home/circleci/splitly
     docker:
       - image: circleci/node:6.10-browsers
     steps:
@@ -11,12 +11,50 @@ jobs:
       - run:
           name: Install npm dependencies
           command: npm install
+      - run:
+          name: Build production bundle
+          command: npm run build:production
       - save_cache:
           key: npm-cache-{{ checksum "package.json" }}
           paths:
             - ./node_modules
+      - persist_to_workspace: 
+          root: /home/circleci
+          paths: 
+            - splitly
+      - store_artifacts:
+          path: ./dist
+  test:
+    docker:
+      - image: circleci/node:6.10-browsers
+    working_directory: ~/splitly
+    steps:
+      - attach_workspace:
+          at: /home/circleci
       - run:
           name: Run tests
           command: npm run test
-      - store_test_results:
-          path: test-results.xml
+  e2e_test:
+    docker:
+      - image: circleci/node:6.10-browsers
+    working_directory: ~/splitly
+    steps:
+      - attach_workspace:
+          at: /home/circleci
+      - run:
+          name: Run cypress e2e tests
+          command: npm run cypress:ci
+      - store_artifacts:
+          path: ./cypress/videos
+
+workflows:
+  version: 2
+  setup_and_test:
+    jobs:
+      - setup
+      - test:
+          requires:
+            - setup
+      - e2e_test:
+          requires:
+            - setup
