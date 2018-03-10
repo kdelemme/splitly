@@ -11,8 +11,6 @@ import Settings from "./Settings";
 import Balances from "./Balances";
 import Welcome from "./Welcome";
 
-import "bootstrap/dist/css/bootstrap.css";
-
 class App extends Component {
   render() {
     const { match } = this.props;
