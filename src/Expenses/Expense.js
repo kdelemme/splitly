@@ -1,6 +1,6 @@
 // @flow
 import React, { Component } from "react";
-import type { UUID, FriendType, ExpenseType, CurrencyType } from "../Types";
+import type { UUID, Friend as FriendType, Expense as ExpenseType, Currency as CurrencyType } from "../Types";
 
 class Expense extends Component<{ expense: ExpenseType, friends: Array<FriendType>, currency: CurrencyType }> {
   findNameById = (id: UUID) => {

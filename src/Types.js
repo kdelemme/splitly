@@ -1,6 +1,6 @@
 export type UUID: string;
 
-export type ExpenseType = {
+export type Expense = {
   id: UUID,
   reason: string,
   payer: string,
@@ -8,12 +8,12 @@ export type ExpenseType = {
   participants: Array<string>
 };
 
-export type CurrencyType = {
+export type Currency = {
   name: string,
   symbol: string
 };
 
-export type FriendType = {
+export type Friend = {
   id: UUID,
   name: string
 };
